@@ -16,18 +16,14 @@ public class GestionEscuela {
     public static ArrayList<Curso> listaCursos = new ArrayList<>();
     public static ArrayList<Matricula> listaMatriculas = new ArrayList<>();
     
-    /**
-     * Agrega un alumno a la lista de Alumno
-     * @param unAlumno 
-     */
+     //Agrega un alumno a la lista de Alumno
+     
     public static void agregarAlumno(Alumno unAlumno){
         listaAlumnos.add(unAlumno);
     }
     
-    /**
-     * Agrega un docente a la lista de docentes
-     * @param unDocente 
-     */
+    // Agrega un docente a la lista de docentes
+
     public static void agregarDocente(Docente unDocente){
         listaDocentes.add(unDocente);
     }
@@ -40,12 +36,8 @@ public class GestionEscuela {
         listaMatriculas.add(unaMatricula);
     }
     
-   /**
-    * Método que verifica si existe un alumno dada la
-    * identificación
-    * @param identificacion
-    * @return true o false
-    */
+    /**Método que verifica si existe un alumno dada la
+    identificación**/
     public static boolean existeAlumno(String identificacion){
         boolean existe=false;
         int tamaLista = listaAlumnos.size();
@@ -58,11 +50,8 @@ public class GestionEscuela {
         return existe;
     }
     
-    /**
-     * método que verifica si ya existe un docente con dicha identificación
-     * @param identificacion
-     * @return  boolean true/false
-     */
+     //método que verifica si ya existe un docente con dicha identificación
+    
     public static boolean existeDocente(String identificacion){
         boolean existe=false;
         for (int i=0;i<listaDocentes.size();i++){
@@ -74,11 +63,8 @@ public class GestionEscuela {
         return existe;
     }
     
-    /**
-     * Obtener alumno por Identificación
-     * @param identificacion
-     * @return Alumno un Alumno
-     */
+     //Obtener alumno por Identificación
+   
      public static Alumno obtenerAlumnoPorIdentificacion(String identificacion){
         Alumno unAlumno=null;
         for (int i=0;i<listaAlumnos.size();i++){
@@ -90,11 +76,9 @@ public class GestionEscuela {
         return unAlumno;
     }
      
-     /**
-      * Método que verifica si existe curso con determinado código
-      * @param codigo
-      * @return boolean, true o false
-      */
+    
+      //Método que verifica si existe curso con determinado código
+      
      public static boolean existeCurso(String codigo){
          boolean existe=false;
          for(int i=0;i<listaCursos.size();i++){
@@ -106,12 +90,9 @@ public class GestionEscuela {
          return existe;
      }
      
-     /**
-      * Método que verifica si un alumno ya está matriculado
-      * en determinado curso
-      * @param unaMatricula
-      * @return 
-      */
+      /**Método que verifica si un alumno ya está matriculado
+      en determinado curso**/
+     
      public static boolean estaMatriculado(Matricula unaMatricula){
          boolean existe=false;
          String identificacion = unaMatricula.getUnAlumno().getIdentificacion();
@@ -126,10 +107,7 @@ public class GestionEscuela {
          return existe;
      }
      
-     /**
-      * Actualiza un docente en la lista
-      * @param unDocente docente con los datos a actualizar
-      */
+     /** Actualiza un docente en la listadocente con los datos a actualizar **/
      public static void actualizarDocente(Docente unDocente){
          int posicion=0;
          String identificacion = unDocente.getIdentificacion();
