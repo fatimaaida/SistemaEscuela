@@ -36,20 +36,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMDListar = new javax.swing.JMenuItem();
         jMMatriculas = new javax.swing.JMenu();
         jMMAgregar = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMSalir = new javax.swing.JMenuItem();
         jMCursos = new javax.swing.JMenu();
         jMCAgregar = new javax.swing.JMenuItem();
         jMCListar = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jMenuBar1.setBackground(new java.awt.Color(153, 153, 255));
+        jMenuBar1.setForeground(new java.awt.Color(153, 153, 255));
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.setMinimumSize(new java.awt.Dimension(0, 4));
 
         jMAlumnos.setText("Alumnos");
         jMAlumnos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMAAgregar.setBackground(new java.awt.Color(153, 153, 255));
         jMAAgregar.setText("Agregar");
         jMAAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +61,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMAlumnos.add(jMAAgregar);
 
+        jMAConsultar.setBackground(new java.awt.Color(153, 153, 255));
         jMAConsultar.setText("Consultar");
         jMAConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +70,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMAlumnos.add(jMAConsultar);
 
+        jMAListar.setBackground(new java.awt.Color(153, 153, 255));
         jMAListar.setText("Listar");
         jMAListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +84,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMDocentes.setText("Docentes");
         jMDocentes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMenuItem1.setBackground(new java.awt.Color(153, 153, 255));
         jMenuItem1.setText("Agregar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +93,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMDocentes.add(jMenuItem1);
 
+        jMDListar.setBackground(new java.awt.Color(153, 153, 255));
         jMDListar.setText("Listar");
         jMDListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +107,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMMatriculas.setText("Matriculas");
         jMMatriculas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMMAgregar.setBackground(new java.awt.Color(153, 153, 255));
         jMMAgregar.setText("Agregar");
         jMMAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,22 +118,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMMatriculas);
 
-        jMenu1.setText("Cerrar");
-        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-
-        jMSalir.setText("Salir");
-        jMSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMSalirActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMSalir);
-
-        jMenuBar1.add(jMenu1);
-
         jMCursos.setText("Cursos");
         jMCursos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMCAgregar.setBackground(new java.awt.Color(153, 153, 255));
         jMCAgregar.setText("Agregar");
         jMCAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,6 +130,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMCursos.add(jMCAgregar);
 
+        jMCListar.setBackground(new java.awt.Color(153, 153, 255));
         jMCListar.setText("Listar");
         jMCListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +140,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMCursos.add(jMCListar);
 
         jMenuBar1.add(jMCursos);
+
+        jMenu1.setText("Cerrar");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jMSalir.setBackground(new java.awt.Color(153, 153, 255));
+        jMSalir.setText("Salir");
+        jMSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMSalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMSalir);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
