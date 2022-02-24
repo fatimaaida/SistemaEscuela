@@ -5,10 +5,10 @@
 
 package sistemaescuela;
 
-/**
- *
- * @author Usuario
- */
+import java.awt.Color;
+import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 public class FrmMatricula extends javax.swing.JFrame {
 
     /** Creates new form FrmMatricula */
@@ -139,8 +139,8 @@ public class FrmMatricula extends javax.swing.JFrame {
         Date fecha = new Date();
         Matricula unaMatricula = new Matricula(unCurso, unAlumno, fecha);
         //primero se pregunta si ya está matriculado
-        if (!GestionColegio.estaMatriculado(unaMatricula)){
-            GestionColegio.agregarMatricula(unaMatricula);
+        if (!GestionEscuela.estaMatriculado(unaMatricula)){
+            GestionEscuela.agregarMatricula(unaMatricula);
             JOptionPane.showMessageDialog(null, "Matricula Agregada");
         }else{
             JOptionPane.showMessageDialog(null, "Ya existe el mismo alumno matriculado en el mismo curso");
