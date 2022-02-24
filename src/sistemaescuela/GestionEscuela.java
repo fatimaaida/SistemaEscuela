@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author Usuario
  */
 public class GestionEscuela {
-  public static ArrayList<Alumno> listaAlumnos = new ArrayList<>();
+    public static ArrayList<Alumno> listaAlumnos = new ArrayList<>();
     public static ArrayList<Docente> listaDocentes = new ArrayList<>();
     public static ArrayList<Curso> listaCursos = new ArrayList<>();
     public static ArrayList<Matricula> listaMatriculas = new ArrayList<>();
@@ -118,5 +118,6 @@ public class GestionEscuela {
              }
          }        
          listaDocentes.set(posicion, unDocente);
-     }  
+     }
+    
 }
