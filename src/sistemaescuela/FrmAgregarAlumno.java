@@ -8,10 +8,7 @@ import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 /**FATIMA AIDA LEON REBOLLO*/
 public class FrmAgregarAlumno extends javax.swing.JFrame {
-
-     /**
-     * Creates new form FrmAgregarAlumno
-     */
+//
     public FrmAgregarAlumno() {
         initComponents();
         setLocationRelativeTo(this);
@@ -27,12 +24,12 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtIdentificacion = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbIdentificacion = new javax.swing.JLabel();
+        lbNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lbCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lbGenero = new javax.swing.JLabel();
         cbGenero = new javax.swing.JComboBox<>();
         btnAgregarAlumno = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
@@ -66,23 +63,23 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
         txtIdentificacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtIdentificacion.setForeground(new java.awt.Color(153, 153, 255));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2.setText("Identificacion:");
+        lbIdentificacion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbIdentificacion.setText("Identificacion:");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3.setText("Nombre:");
+        lbNombre.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbNombre.setText("Nombre:");
 
         txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 255));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel4.setText("Correo:");
+        lbCorreo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbCorreo.setText("Correo:");
 
         txtCorreo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtCorreo.setForeground(new java.awt.Color(153, 153, 255));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel5.setText("Genero:");
+        lbGenero.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbGenero.setText("Genero:");
 
         cbGenero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbGenero.setForeground(new java.awt.Color(153, 153, 255));
@@ -131,15 +128,15 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3))
+                                .addComponent(lbCorreo)
+                                .addComponent(lbNombre))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(lbGenero)
                                 .addGap(5, 5, 5)))
                         .addGap(36, 36, 36)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -156,18 +153,18 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(lbIdentificacion))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(lbNombre))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(lbCorreo)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(lbGenero)
                     .addComponent(cbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -187,15 +184,15 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
     private void btnAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAlumnoActionPerformed
         // TODO add your handling code here:
         if (!txtCorreo.getText().isEmpty() && !txtIdentificacion.getText().isEmpty()
-            && !txtNombre.getText().isEmpty()){
+                && !txtNombre.getText().isEmpty()){            
             try{
                 int identifica= Integer.parseInt(txtIdentificacion.getText().trim());
                 String nombre = txtNombre.getText();
                 String correo = txtCorreo.getText();
                 String genero = cbGenero.getSelectedItem().toString();
                 Alumno unAlumno = new Alumno(genero, txtIdentificacion.getText().trim(), nombre, correo);
-                if (SistemaEscuela.existeAlumno(txtIdentificacion.getText())==false){
-                    SistemaEscuela.agregarAlumno(unAlumno);
+                if (GestionEscuela.existeAlumno(txtIdentificacion.getText())==false){
+                    GestionEscuela.agregarAlumno(unAlumno);
                     JOptionPane.showMessageDialog(null, "Alumno Agregado");
                     txtCorreo.setText("");
                     txtIdentificacion.setText("");
@@ -211,6 +208,7 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAgregarAlumnoActionPerformed
 
+    //BOTON REGRESAR
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -256,11 +254,11 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cbGenero;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbCorreo;
+    private javax.swing.JLabel lbGenero;
+    private javax.swing.JLabel lbIdentificacion;
+    private javax.swing.JLabel lbNombre;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtIdentificacion;
     private javax.swing.JTextField txtNombre;

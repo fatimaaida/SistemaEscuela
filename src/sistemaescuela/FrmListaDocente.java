@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+//
 package sistemaescuela;
  import javax.swing.table.DefaultTableModel;
 // FATIMA AIDA LEON REBOLLO
@@ -15,6 +12,7 @@ public class FrmListaDocente extends javax.swing.JFrame {
         setLocationRelativeTo(this);
         listarDocentes();
     }
+    //METODO PARA PODER LISTAR A LOS DOCENTES
     public void listarDocentes(){
         int cantidad = GestionEscuela.listaDocentes.size();
         DefaultTableModel modelo = (DefaultTableModel) tblDocentes.getModel();
@@ -157,16 +155,19 @@ public class FrmListaDocente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //BOTON DE REGRESAR
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
+    //BOTON DE ELIMINAR
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-       
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    //BOTON DE EDITAR
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed

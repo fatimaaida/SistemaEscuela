@@ -3,11 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package sistemaescuela;
-
-/**
- *
- * @author Usuario
- */
+// FATIMA AIDA LEON REBOLLO
 public class Alumno extends Persona{
     private String Genero;
     public Alumno(String Genero, String identificacion, String nombre, String correo) {

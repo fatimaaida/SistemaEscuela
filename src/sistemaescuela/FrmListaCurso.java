@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+//
 package sistemaescuela;
 
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Usuario
- */
+// FATIMA AIDA LEON REBOLLO
 public class FrmListaCurso extends javax.swing.JFrame {
 
     /**
@@ -20,6 +14,7 @@ public class FrmListaCurso extends javax.swing.JFrame {
         setLocationRelativeTo(this);
         listarCursos();
     }
+    // METODO DE LISTAR LOS CURSOS
     public void listarCursos(){
         int cantidad = GestionEscuela.listaCursos.size();
         DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
@@ -94,6 +89,7 @@ public class FrmListaCurso extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tblCursos.setSelectionBackground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setViewportView(tblCursos);
 
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -157,15 +153,18 @@ public class FrmListaCurso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //BOTON DE REGRESAR
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
+    //BOTON DE EDITAR
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
 
+    //BOTON DE ELIMINAR
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed

@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package sistemaescuela;
 
-/**
- *
- * @author Usuario
- */
+// FATIMA AIDA LEON REBOLLO
 public class Docente extends Persona{
     private String Profesion;
     public Docente(String Profesion, String identificacion, 

@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+//
 package sistemaescuela;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Usuario
- */
+// FATIMA AIDA LEON REBOLLO
 public class GestionEscuela {
     public static ArrayList<Alumno> listaAlumnos = new ArrayList<>();
     public static ArrayList<Docente> listaDocentes = new ArrayList<>();

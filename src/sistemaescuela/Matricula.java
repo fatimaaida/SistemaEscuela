@@ -1,20 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+//
 package sistemaescuela;
 
+import java.awt.Color;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Usuario
- */
+// FATIMA AIDA LEON REBOLLO
 public class Matricula {
     private Curso unCurso;
     private Alumno unAlumno;
     private Date fecha;
 
+    //METODOS DE 
     public Matricula(Curso unCurso, Alumno unAlumno, Date fecha) {
         this.unCurso = unCurso;
         this.unAlumno = unAlumno;

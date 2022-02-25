@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+//
 package sistemaescuela;
 import javax.swing.JOptionPane;
-/**
- *
- * @author Usuario
- */
+// FATIMA AIDA LEON REBOLLO
 public class FrmPrincipal extends javax.swing.JFrame {
 
     /**
@@ -15,6 +9,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
      */
     public FrmPrincipal() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -171,42 +166,49 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //LLAMA AL FORMULARIO DE AGREGAR
     private void jMAAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAAgregarActionPerformed
         // TODO add your handling code here:
         FrmAgregarAlumno frm = new FrmAgregarAlumno();
         frm.setVisible(true);
     }//GEN-LAST:event_jMAAgregarActionPerformed
 
+    //LLAMA AL FORMULARIO DE CONSULTAR
     private void jMAConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAConsultarActionPerformed
         // TODO add your handling code here:
         FrmConsultarAlumno frm = new FrmConsultarAlumno();
         frm.setVisible(true);
     }//GEN-LAST:event_jMAConsultarActionPerformed
 
+    //LLAMA AL FORMULARIO DE LISTAR
     private void jMAListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAListarActionPerformed
         // TODO add your handling code here:
         FrmListaAlumno frm = new FrmListaAlumno();
         frm.setVisible(true);
     }//GEN-LAST:event_jMAListarActionPerformed
 
+    // LLAMA AL FORMULARIO DE AGREGAR DOCENTE
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         FrmAgregarDocente frm = new FrmAgregarDocente();
         frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    //LLAMA AL FORMULARIO DE  LISTAR DOCENTE
     private void jMDListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMDListarActionPerformed
         // TODO add your handling code here:
         FrmListaDocente frm = new FrmListaDocente();
         frm.setVisible(true);
     }//GEN-LAST:event_jMDListarActionPerformed
 
+    // LLAMA AL FORMULARIO DE  AGREGAR MATRICULA
     private void jMMAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMMAgregarActionPerformed
         // TODO add your handling code here:
         FrmMatricula frm = new FrmMatricula();
         frm.setVisible(true);
     }//GEN-LAST:event_jMMAgregarActionPerformed
 
+    // LLAMA AL FORMULARIO DE SALIR
     private void jMSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSalirActionPerformed
         // TODO add your handling code here:
         int confirmado = JOptionPane.showConfirmDialog(null, "Está seguro de Salir");
@@ -215,12 +217,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMSalirActionPerformed
 
+    // LLAMA AL FORMULARIO DE AGREGAR CURSO
     private void jMCAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMCAgregarActionPerformed
         // TODO add your handling code here:
         FrmAgregarCurso frm = new FrmAgregarCurso();
         frm.setVisible(true);
     }//GEN-LAST:event_jMCAgregarActionPerformed
 
+    //LLAMA AL FORMULARIO DE  LISTAR CURSO
     private void jMCListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMCListarActionPerformed
         // TODO add your handling code here:
         FrmListaCurso frm = new FrmListaCurso();

@@ -4,10 +4,7 @@
  */
 package sistemaescuela;
 
-/**
- *
- * @author Usuario
- */
+// FATIMA AIDA LEON REBOLLO
 public class Curso {
     private String codigo;
     private String nombre;

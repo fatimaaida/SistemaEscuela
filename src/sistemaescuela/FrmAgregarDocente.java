@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+//
 package sistemaescuela;
 
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
-
+// FATIMA AIDA LEON REBOLLO
 public class FrmAgregarDocente extends javax.swing.JFrame {
 
     /**
@@ -26,52 +23,52 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        pnColor = new javax.swing.JPanel();
+        lbAggDocente = new javax.swing.JLabel();
         txtIdentificacion = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbIdentificacion = new javax.swing.JLabel();
+        lbNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lbCorreo = new javax.swing.JLabel();
+        lbPreofesion = new javax.swing.JLabel();
         cbProfesion = new javax.swing.JComboBox<>();
         btnAgregarDocente = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        pnColor.setBackground(new java.awt.Color(153, 153, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("AGREGAR DOCENTES");
+        lbAggDocente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbAggDocente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbAggDocente.setText("AGREGAR DOCENTES");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout pnColorLayout = new javax.swing.GroupLayout(pnColor);
+        pnColor.setLayout(pnColorLayout);
+        pnColorLayout.setHorizontalGroup(
+            pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnColorLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(lbAggDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnColorLayout.setVerticalGroup(
+            pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnColorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lbAggDocente)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
         txtIdentificacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtIdentificacion.setForeground(new java.awt.Color(153, 153, 255));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2.setText("Identificación:");
+        lbIdentificacion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbIdentificacion.setText("Identificación:");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3.setText("Nombre:");
+        lbNombre.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbNombre.setText("Nombre:");
 
         txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 255));
@@ -79,11 +76,11 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
         txtCorreo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtCorreo.setForeground(new java.awt.Color(153, 153, 255));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel4.setText("Correo:");
+        lbCorreo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbCorreo.setText("Correo:");
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel5.setText("Profesión:");
+        lbPreofesion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbPreofesion.setText("Profesión:");
 
         cbProfesion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cbProfesion.setForeground(new java.awt.Color(153, 153, 255));
@@ -121,12 +118,12 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
                             .addComponent(cbProfesion, 0, 212, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
+                            .addComponent(lbIdentificacion)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3))
+                                .addComponent(lbCorreo)
+                                .addComponent(lbNombre))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(lbPreofesion)
                                 .addGap(5, 5, 5)))
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -137,28 +134,28 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
                         .addComponent(btnAgregarDocente)
                         .addGap(25, 25, 25)
                         .addComponent(btnRegresar)))
-                .addContainerGap(32, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(46, Short.MAX_VALUE))
+            .addComponent(pnColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lbIdentificacion)
                     .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lbNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(lbCorreo)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(lbPreofesion)
                     .addComponent(cbProfesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,6 +167,7 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Método qye agrega un docente a la lista de docentes
     private void btnAgregarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDocenteActionPerformed
         // TODO add your handling code here:
         if (!txtIdentificacion.getText().isEmpty() && !txtCorreo.getText().isEmpty()
@@ -199,6 +197,7 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAgregarDocenteActionPerformed
 
+    //BOTON REGRESAR
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -243,12 +242,12 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarDocente;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cbProfesion;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbAggDocente;
+    private javax.swing.JLabel lbCorreo;
+    private javax.swing.JLabel lbIdentificacion;
+    private javax.swing.JLabel lbNombre;
+    private javax.swing.JLabel lbPreofesion;
+    private javax.swing.JPanel pnColor;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtIdentificacion;
     private javax.swing.JTextField txtNombre;
