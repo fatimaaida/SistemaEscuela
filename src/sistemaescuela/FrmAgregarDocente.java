@@ -37,6 +37,7 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         pnColor.setBackground(new java.awt.Color(153, 153, 255));
 

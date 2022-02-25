@@ -80,6 +80,7 @@ public class FrmListaAlumno extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         tblAlumnos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblAlumnos.setForeground(new java.awt.Color(153, 153, 255));

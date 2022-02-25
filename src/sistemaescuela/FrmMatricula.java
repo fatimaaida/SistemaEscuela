@@ -9,11 +9,30 @@ import java.awt.Color;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+//FATIMA AIDA LEON REBOLLO
+
 public class FrmMatricula extends javax.swing.JFrame {
 
     /** Creates new form FrmMatricula */
     public FrmMatricula() {
         initComponents();
+        setLocationRelativeTo(this);        
+        mostrarDatos();
+    }
+    private void mostrarDatos(){
+        int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cbAlumno.getModel();
+        cbAlumno.setModel(modelo);
+        for(int i=0;i<cantidadAlumnos;i++){
+            modelo.addElement(GestionEscuela.listaAlumnos.get(i));
+        }
+        
+        int cantidadCursos = GestionEscuela.listaCursos.size();
+        DefaultComboBoxModel modelo2= (DefaultComboBoxModel) cbCursos.getModel();
+        cbCursos.setModel(modelo2);
+        for(int i=0;i<cantidadCursos;i++){
+            modelo2.addElement(GestionEscuela.listaCursos.get(i));
+        }
     }
 
     /** This method is called from within the constructor to
@@ -35,6 +54,7 @@ public class FrmMatricula extends javax.swing.JFrame {
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         pnColor.setBackground(new java.awt.Color(153, 153, 255));
 

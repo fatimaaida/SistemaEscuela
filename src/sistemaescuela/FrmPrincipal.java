@@ -38,6 +38,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jMenuBar1.setBackground(new java.awt.Color(153, 153, 255));
         jMenuBar1.setForeground(new java.awt.Color(153, 153, 255));

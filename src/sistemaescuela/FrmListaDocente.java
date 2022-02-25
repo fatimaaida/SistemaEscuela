@@ -49,6 +49,7 @@ public class FrmListaDocente extends javax.swing.JFrame {
         jLabel1.setText("LISTA DE DOCENTES DEL COLEGIO");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
