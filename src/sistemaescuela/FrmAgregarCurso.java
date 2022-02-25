@@ -163,8 +163,6 @@ public class FrmAgregarCurso extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        btnRegresar.getAccessibleContext().setAccessibleName("AGREGAR");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
