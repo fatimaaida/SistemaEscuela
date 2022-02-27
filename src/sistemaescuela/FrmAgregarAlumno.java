@@ -181,7 +181,6 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
 
     private void cbGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGeneroActionPerformed
         // TODO add your handling code here:
-        this.dispose();
     }//GEN-LAST:event_cbGeneroActionPerformed
     //Método que agrega un alumno a la lista de Alumnos
     private void btnAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAlumnoActionPerformed
