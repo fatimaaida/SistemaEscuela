@@ -1,5 +1,6 @@
 //
 package sistemaescuela;
+import java.awt.HeadlessException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -237,93 +238,16 @@ public class FrmListaCurso extends javax.swing.JFrame {
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
         // TODO add your handling code here:
 
-        int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
-        DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
-        String[] datos = new String[4];
-
-        for (int i = 0; i < cantidadAlumnos; i++) {
-            datos[0] = GestionEscuela.listaAlumnos.get(i).getIdentificacion();
-            datos[1] = GestionEscuela.listaAlumnos.get(i).getNombre();
-            datos[2] = GestionEscuela.listaAlumnos.get(i).getCorreo();
-            datos[3] = GestionEscuela.listaAlumnos.get(i).getGenero();
-            System.out.println(""+datos[1]);
-            //  modelo.addRow(datos);
-        }
-
-        for (int x = 0; x < (datos.length) / 4; x++) {
-            // Aquí "y" se detiene antes de llegar
-            // a length - 1 porque dentro del for, accedemos
-            // al siguiente elemento con el índice actual + 1
-            for (int y = 0; y < (datos.length / 4) - 1; y++) {
-                String codigoActual = datos[y],
-                nombreActual = datos[y + 1],
-                correoActual = datos[y + 2],
-                generoActual = datos[y + 3],
-                codigoSiguiente = datos[y + 4],
-                nombreSiguiente = datos[y + 5],
-                correoSiguiente = datos[y + 6],
-                generoSiguiente = datos[y + 7];
-                if (nombreActual.compareTo(nombreSiguiente) > 0) {
-                    // Intercambiar
-                    datos[y] = codigoSiguiente;
-                    datos[y + 1] = nombreSiguiente;
-                    datos[y + 2] = correoSiguiente;
-                    datos[y + 3] = generoSiguiente;
-                    datos[y + 4] = codigoActual;
-                    datos[y + 5] = nombreActual;
-                    datos[y + 6] = correoActual;
-                    datos[y + 7] = generoActual;
-                }
-            }
-        }
-
-        String [] info = new String[4];
-        System.out.println(""+datos[1]);
-        int fila= tblCursos.getRowCount();
-        for (int i = fila-1; i >= 0; i--) {
-            modelo.removeRow(i);
-        }
-        for (int i = 0; i < cantidadAlumnos/4; i++) {
-            info[0]=datos[i];
-            info[1]=datos[i+1];
-            info[2]=datos[i+2];
-            info[3]=datos[i+3];
-            modelo.addRow(info);
-        }
     }//GEN-LAST:event_btnOrdenarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        int fila = tblCursos.getSelectedRow();
-        DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
-        if (fila>=0) {
-            GestionEscuela.eliminarAlumno(txtCodigo.getText());
-            modelo.removeRow(fila);
-            int identifica= Integer.parseInt(txtCodigo.getText().trim());
-            String nombre = txtNombreCurso.getText();
-            String correo = txtNumeroHoras.getText();
-            String genero = cbDocente.getSelectedItem().toString();
-            Alumno unAlumno = new Alumno(genero, txtCodigo.getText().trim(), nombre, correo);
-            GestionEscuela.agregarAlumno(unAlumno);
-            JOptionPane.showMessageDialog(null, "Alumno Actualizado");
-            txtNumeroHoras.setText("");
-            txtCodigo.setText("");
-            txtNombreCurso.setText("");
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccionar fila");
-        }
+        
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        int fila = tblCursos.getSelectedRow();
-        DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
-        if (fila>=0) {
-            GestionEscuela.eliminarAlumno(txtCodigo.getText());
-            modelo.removeRow(fila);
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccionar fila");
-        }
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**

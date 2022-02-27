@@ -3,8 +3,11 @@ package sistemaescuela;
 
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class FrmConsultarAlumno extends javax.swing.JFrame {
 // FATIMA AIDA LEON REBOLLO
+
     /**
      * Creates new form FrmConsultarAlumno
      */
@@ -28,14 +31,10 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        pnColor = new javax.swing.JPanel();
-        lbConsultarAlum = new javax.swing.JLabel();
         txtIdentificacion = new javax.swing.JTextField();
         lbIdentificacion = new javax.swing.JLabel();
         btnConsultar = new javax.swing.JButton();
-        lbNombre1 = new javax.swing.JLabel();
-        btnRegresar = new javax.swing.JButton();
-        txtNombrebusqueda = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         panelAlumno = new javax.swing.JPanel();
         lbNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
@@ -43,6 +42,10 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         txtGenero = new javax.swing.JTextField();
         lbGenero = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
+        pnColor = new javax.swing.JPanel();
+        lbConsultarAlum = new javax.swing.JLabel();
+        lbNombre1 = new javax.swing.JLabel();
+        txtNombrebusqueda = new javax.swing.JTextField();
         btnConsultar1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -132,31 +135,6 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        pnColor.setBackground(new java.awt.Color(153, 153, 255));
-
-        lbConsultarAlum.setBackground(new java.awt.Color(0, 0, 0));
-        lbConsultarAlum.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lbConsultarAlum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbConsultarAlum.setText("CONSULTA DE ALUMNOS");
-        lbConsultarAlum.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout pnColorLayout = new javax.swing.GroupLayout(pnColor);
-        pnColor.setLayout(pnColorLayout);
-        pnColorLayout.setHorizontalGroup(
-            pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnColorLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(lbConsultarAlum, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                .addGap(111, 111, 111))
-        );
-        pnColorLayout.setVerticalGroup(
-            pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnColorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbConsultarAlum)
-                .addContainerGap())
-        );
-
         txtIdentificacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtIdentificacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,22 +155,12 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
             }
         });
 
-        lbNombre1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        lbNombre1.setText("Nombre:");
-
-        btnRegresar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnRegresar.setForeground(new java.awt.Color(153, 153, 255));
-        btnRegresar.setLabel("REGRESAR");
-        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(153, 153, 255));
+        jButton1.setLabel("REGRESAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresarActionPerformed(evt);
-            }
-        });
-
-        txtNombrebusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNombrebusqueda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombrebusquedaActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -260,6 +228,41 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        pnColor.setBackground(new java.awt.Color(153, 153, 255));
+
+        lbConsultarAlum.setBackground(new java.awt.Color(0, 0, 0));
+        lbConsultarAlum.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbConsultarAlum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbConsultarAlum.setText("CONSULTA DE ALUMNOS");
+        lbConsultarAlum.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout pnColorLayout = new javax.swing.GroupLayout(pnColor);
+        pnColor.setLayout(pnColorLayout);
+        pnColorLayout.setHorizontalGroup(
+            pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnColorLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(lbConsultarAlum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(111, 111, 111))
+        );
+        pnColorLayout.setVerticalGroup(
+            pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnColorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbConsultarAlum)
+                .addContainerGap())
+        );
+
+        lbNombre1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lbNombre1.setText("Nombre:");
+
+        txtNombrebusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNombrebusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombrebusquedaActionPerformed(evt);
+            }
+        });
+
         btnConsultar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnConsultar1.setForeground(new java.awt.Color(153, 153, 255));
         btnConsultar1.setToolTipText("Clic para Consultar");
@@ -282,7 +285,7 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
                         .addComponent(panelAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(141, 141, 141)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -317,8 +320,7 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(panelAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -337,7 +339,7 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         txtGenero.setText("");
 
         int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
-        
+
         int[] datos = new int[cantidadAlumnos];
         //String[] datosS = new String[cantidadAlumnos *4];
         int i = 0;
@@ -375,11 +377,39 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
 
+    public static int buscar(int[] arreglo, int dato) {
+        int inicio = 0;
+        int fin = arreglo.length - 1;
+        int pos;
+        while (inicio <= fin) {
+            pos = (inicio + fin) / 2;
+            if (arreglo[pos] == dato) {
+                return pos;
+            } else if (arreglo[pos] < dato) {
+                inicio = pos + 1;
+            } else {
+                fin = pos - 1;
+            }
+        }
+        return -1;
+    }
+
+    public int busquedaSecuencial(String[] arreglo, String dato) {
+        int posicion = -1;
+        for (int i = 0; i < arreglo.length; i++) {//recorremos todo el arreglo
+            if (dato.equals(arreglo[i])) {//comparamos el elemento en el arreglo con el buscado
+                posicion = i;//Si es verdadero guardamos la posicion
+                break;//Para el ciclo
+            }
+        }
+        return posicion;
+    }
+
     //BOTON DE REGRESAR
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_btnRegresarActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtNombrebusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombrebusquedaActionPerformed
         // TODO add your handling code here:
@@ -419,37 +449,9 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Debe Ingresar la identificación del Alumno a Consultar");
         }
+
     }//GEN-LAST:event_btnConsultar1ActionPerformed
 
-    public static int buscar(int[] arreglo, int dato) {
-        int inicio = 0;
-        int fin = arreglo.length - 1;
-        int pos;
-        while (inicio <= fin) {
-            pos = (inicio + fin) / 2;
-            if (arreglo[pos] == dato) {
-                return pos;
-            } else if (arreglo[pos] < dato) {
-                inicio = pos + 1;
-            } else {
-                fin = pos - 1;
-            }
-        }
-        return -1;
-    }
-    
-    
-    public int busquedaSecuencial(String[] arreglo, String dato) {
-        int posicion = -1;
-        for (int i = 0; i < arreglo.length; i++) {//recorremos todo el arreglo
-            if (dato.equals(arreglo[i])) {//comparamos el elemento en el arreglo con el buscado
-                posicion = i;//Si es verdadero guardamos la posicion
-                break;//Para el ciclo
-            }
-        }
-        return posicion;
-    }
-    
     /**
      * @param args the command line arguments
      */
@@ -476,6 +478,7 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmConsultarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -488,7 +491,7 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnConsultar1;
-    private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

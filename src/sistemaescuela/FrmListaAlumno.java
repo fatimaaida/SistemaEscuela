@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package sistemaescuela;
+
+import java.awt.HeadlessException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,25 +17,30 @@ public class FrmListaAlumno extends javax.swing.JFrame {
      */
     public FrmListaAlumno() {
         initComponents();
-         setLocationRelativeTo(this);
+        setLocationRelativeTo(this);
         listarAlumnos();
     }
+
     /**
-     * Obtiene la lista de Alumnos y los agrega en la
-     * tabla del formulario
+     * Obtiene la lista de Alumnos y los agrega en la tabla del formulario
      */
     //METODO PARA LISTAR A LOS ALUMNOS
-    public void listarAlumnos(){
+    public void listarAlumnos() {
+
         int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
-        DefaultTableModel modelo = (DefaultTableModel) tblAlumnos.getModel();        
+        DefaultTableModel modelo = (DefaultTableModel) tblAlumnos.getModel();
         String[] datos = new String[4];
-        for(int i=0;i<cantidadAlumnos;i++){
-            datos[0]=GestionEscuela.listaAlumnos.get(i).getIdentificacion();
-            datos[1]=GestionEscuela.listaAlumnos.get(i).getNombre();
-            datos[2]=GestionEscuela.listaAlumnos.get(i).getCorreo();
-            datos[3]=GestionEscuela.listaAlumnos.get(i).getGenero();
-            modelo.addRow(datos);            
-        }      
+        int fila = tblAlumnos.getRowCount();
+        for (int i = fila - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+        for (int i = 0; i < cantidadAlumnos; i++) {
+            datos[0] = GestionEscuela.listaAlumnos.get(i).getIdentificacion();
+            datos[1] = GestionEscuela.listaAlumnos.get(i).getNombre();
+            datos[2] = GestionEscuela.listaAlumnos.get(i).getCorreo();
+            datos[3] = GestionEscuela.listaAlumnos.get(i).getGenero();
+            modelo.addRow(datos);
+        }
     }
 
     /**
@@ -47,22 +54,22 @@ public class FrmListaAlumno extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAlumnos = new javax.swing.JTable();
+        btnRegresar = new javax.swing.JButton();
         pnColor = new javax.swing.JPanel();
         lbListarAlum = new javax.swing.JLabel();
-        lbGenero = new javax.swing.JLabel();
-        cbGenero = new javax.swing.JComboBox<>();
         btnEliminar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnOrdenar = new javax.swing.JButton();
         txtIdentificacion = new javax.swing.JTextField();
         lbIdentificacion = new javax.swing.JLabel();
         lbNombre = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblAlumnos = new javax.swing.JTable();
         txtNombre = new javax.swing.JTextField();
         lbCorreo = new javax.swing.JLabel();
-        btnRegresar = new javax.swing.JButton();
+        txtCorreo = new javax.swing.JTextField();
+        lbGenero = new javax.swing.JLabel();
+        cbGenero = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
@@ -90,80 +97,6 @@ public class FrmListaAlumno extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        txtCorreo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtCorreo.setForeground(new java.awt.Color(153, 153, 255));
-
-        pnColor.setBackground(new java.awt.Color(153, 153, 255));
-
-        lbListarAlum.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lbListarAlum.setText("LISTAR ALUMNOS");
-
-        javax.swing.GroupLayout pnColorLayout = new javax.swing.GroupLayout(pnColor);
-        pnColor.setLayout(pnColorLayout);
-        pnColorLayout.setHorizontalGroup(
-            pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnColorLayout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(lbListarAlum)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnColorLayout.setVerticalGroup(
-            pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnColorLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(lbListarAlum)
-                .addContainerGap())
-        );
-
-        lbGenero.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lbGenero.setText("Genero:");
-
-        cbGenero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbGenero.setForeground(new java.awt.Color(153, 153, 255));
-        cbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino", "Otro" }));
-        cbGenero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbGeneroActionPerformed(evt);
-            }
-        });
-
-        btnEliminar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(153, 153, 255));
-        btnEliminar.setLabel("ELIMINAR");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnEditar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnEditar.setForeground(new java.awt.Color(153, 153, 255));
-        btnEditar.setLabel("GUARDAR");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-
-        btnOrdenar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnOrdenar.setForeground(new java.awt.Color(153, 153, 255));
-        btnOrdenar.setText("ORDENAR");
-        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrdenarActionPerformed(evt);
-            }
-        });
-
-        txtIdentificacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtIdentificacion.setForeground(new java.awt.Color(153, 153, 255));
-        txtIdentificacion.setEnabled(false);
-
-        lbIdentificacion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lbIdentificacion.setText("Identificacion:");
-
-        lbNombre.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lbNombre.setText("Nombre:");
-
         tblAlumnos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblAlumnos.setForeground(new java.awt.Color(153, 153, 255));
         tblAlumnos.setModel(new javax.swing.table.DefaultTableModel(
@@ -189,18 +122,92 @@ public class FrmListaAlumno extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblAlumnos);
 
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(153, 153, 255));
-
-        lbCorreo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lbCorreo.setText("Correo:");
-
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(153, 153, 255));
         btnRegresar.setLabel("REGRESAR");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
+            }
+        });
+
+        pnColor.setBackground(new java.awt.Color(153, 153, 255));
+
+        lbListarAlum.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbListarAlum.setText("LISTAR ALUMNOS");
+
+        javax.swing.GroupLayout pnColorLayout = new javax.swing.GroupLayout(pnColor);
+        pnColor.setLayout(pnColorLayout);
+        pnColorLayout.setHorizontalGroup(
+            pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnColorLayout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(lbListarAlum)
+                .addContainerGap(329, Short.MAX_VALUE))
+        );
+        pnColorLayout.setVerticalGroup(
+            pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnColorLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(lbListarAlum)
+                .addContainerGap())
+        );
+
+        btnEliminar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(153, 153, 255));
+        btnEliminar.setLabel("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnEditar.setForeground(new java.awt.Color(153, 153, 255));
+        btnEditar.setLabel("EDITAR");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnOrdenar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnOrdenar.setForeground(new java.awt.Color(153, 153, 255));
+        btnOrdenar.setText("ORDENAR");
+        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarActionPerformed(evt);
+            }
+        });
+
+        txtIdentificacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtIdentificacion.setForeground(new java.awt.Color(153, 153, 255));
+        txtIdentificacion.setEnabled(false);
+
+        lbIdentificacion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbIdentificacion.setText("Identificacion:");
+
+        lbNombre.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbNombre.setText("Nombre:");
+
+        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(153, 153, 255));
+
+        lbCorreo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbCorreo.setText("Correo:");
+
+        txtCorreo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(153, 153, 255));
+
+        lbGenero.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbGenero.setText("Genero:");
+
+        cbGenero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbGenero.setForeground(new java.awt.Color(153, 153, 255));
+        cbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino", "Otro" }));
+        cbGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbGeneroActionPerformed(evt);
             }
         });
 
@@ -215,28 +222,32 @@ public class FrmListaAlumno extends javax.swing.JFrame {
                 .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbNombre)
-                            .addComponent(lbCorreo)
-                            .addComponent(lbGenero))
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
                         .addComponent(lbIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbCorreo)
+                                .addComponent(lbNombre))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbGenero)
+                                .addGap(5, 5, 5)))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombre)
+                            .addComponent(txtCorreo)
+                            .addComponent(cbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -251,51 +262,56 @@ public class FrmListaAlumno extends javax.swing.JFrame {
                     .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnOrdenar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbIdentificacion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbIdentificacion)
-                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNombre))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbCorreo)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbGenero)
                     .addComponent(cbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(223, 223, 223))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGeneroActionPerformed
+    //BOTON DE REGRESAR
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbGeneroActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
+    // BOTON DE ELIMINAR
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int fila = tblAlumnos.getSelectedRow();
         DefaultTableModel modelo = (DefaultTableModel) tblAlumnos.getModel();
         if (fila >= 0) {
 
-            GestionEscuela.eliminarAlumno(txtIdentificacion.getText());
+            GestionEscuela.eliminarAlumno(hola(txtIdentificacion.getText()));
             modelo.removeRow(fila);
+            listarAlumnos();
         } else {
             JOptionPane.showMessageDialog(null, "Seleccionar fila");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    //BOTON DE EDITAR
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
         int fila = tblAlumnos.getSelectedRow();
         DefaultTableModel modelo = (DefaultTableModel) tblAlumnos.getModel();
         if (fila >= 0) {
-            GestionEscuela.eliminarAlumno(txtIdentificacion.getText());
+            GestionEscuela.eliminarAlumno(hola(txtIdentificacion.getText()));
             modelo.removeRow(fila);
             int identifica = Integer.parseInt(txtIdentificacion.getText().trim());
             String nombre = txtNombre.getText();
@@ -307,7 +323,7 @@ public class FrmListaAlumno extends javax.swing.JFrame {
             txtCorreo.setText("");
             txtIdentificacion.setText("");
             txtNombre.setText("");
-             fila = tblAlumnos.getRowCount();
+            fila = tblAlumnos.getRowCount();
             for (int i = fila - 1; i >= 0; i--) {
                 modelo.removeRow(i);
             }
@@ -335,31 +351,43 @@ public class FrmListaAlumno extends javax.swing.JFrame {
             contador++;
         }
 
-        for (int x = 0; x < (datos.length) / 4; x++) {
-            // Aquí "y" se detiene antes de llegar
-            // a length - 1 porque dentro del for, accedemos
-            // al siguiente elemento con el índice actual + 1
-            for (int y = 0; y < (datos.length / 4) - 1; y++) {
-                String codigoActual = datos[y],
-                        nombreActual = datos[y + 1],
-                        correoActual = datos[y + 2],
-                        generoActual = datos[y + 3],
-                        codigoSiguiente = datos[y + 4],
-                        nombreSiguiente = datos[y + 5],
-                        correoSiguiente = datos[y + 6],
-                        generoSiguiente = datos[y + 7];
-                if (nombreActual.compareTo(nombreSiguiente) > 0) {
-                    // Intercambiar
-                    datos[y] = codigoSiguiente;
-                    datos[y + 1] = nombreSiguiente;
-                    datos[y + 2] = correoSiguiente;
-                    datos[y + 3] = generoSiguiente;
-                    datos[y + 4] = codigoActual;
-                    datos[y + 5] = nombreActual;
-                    datos[y + 6] = correoActual;
-                    datos[y + 7] = generoActual;
+        String codigo;
+        String nombre;
+        String correo;
+        String genero;
+        int contador1 = 1, contador2 = 5;
+
+        for (i = 0; i < ((datos.length) / 4); i++) {
+            contador1 = 1;
+            contador2 = 5;
+            for (int j = 0; j < ((datos.length) / 4) - 1; j++) {
+                if (datos[contador1].compareTo(datos[contador2]) > 0) {
+
+                    nombre = datos[contador1];
+                    datos[contador1] = datos[contador2];
+                    datos[contador2] = nombre;
+
+                    codigo = datos[contador1 - 1];
+                    datos[contador1 - 1] = datos[contador2 - 1];
+                    datos[contador2 - 1] = codigo;
+
+                    correo = datos[contador1 + 1];
+                    datos[contador1 + 1] = datos[contador2 + 1];
+                    datos[contador2 + 1] = correo;
+
+                    genero = datos[contador1 + 2];
+                    datos[contador1 + 2] = datos[contador2 + 2];
+                    datos[contador2 + 2] = genero;
+
+                }
+                contador1 = contador1 + 4;
+                contador2 = contador2 + 4;
+
+                if (contador2 >= datos.length) {
+                    j = 100;
                 }
             }
+
         }
 
         //System.out.println(""+datos[1]);
@@ -380,6 +408,11 @@ public class FrmListaAlumno extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnOrdenarActionPerformed
 
+    private void cbGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGeneroActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_cbGeneroActionPerformed
+
     private void tblAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlumnosMouseClicked
         // TODO add your handling code here:
         int seleccionar = tblAlumnos.rowAtPoint(evt.getPoint());
@@ -388,10 +421,55 @@ public class FrmListaAlumno extends javax.swing.JFrame {
         txtCorreo.setText(String.valueOf(tblAlumnos.getValueAt(seleccionar, 2)));
     }//GEN-LAST:event_tblAlumnosMouseClicked
 
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_btnRegresarActionPerformed
+    public int hola(String buscar) {
+        int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
+
+        String[] datos = new String[cantidadAlumnos * 4];
+
+        int i = 0;
+        int contador = 0;
+        for (i = 0; i < datos.length; i++) {
+            datos[i] = GestionEscuela.listaAlumnos.get(contador).getIdentificacion();
+            datos[i + 1] = GestionEscuela.listaAlumnos.get(contador).getNombre();
+            datos[i + 2] = GestionEscuela.listaAlumnos.get(contador).getCorreo();
+            datos[i + 3] = GestionEscuela.listaAlumnos.get(contador).getGenero();
+            i = i + 3;
+            contador++;
+        }
+
+        if (!buscar.isEmpty()) {
+            try {
+                String identifica = buscar;
+                int indice = busquedaSecuencial(datos, identifica);
+                if (indice < 0) {
+                    JOptionPane.showMessageDialog(null, "No existe Alumno con dicha Identificación");
+                } else {
+                    if (indice <= 0) {
+                        return 0;
+                    } else {
+                        indice = indice / 4;
+                        return indice;
+                    }
+                }
+            } catch (NumberFormatException | HeadlessException ex) {
+                JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe Ingresar la identificación del Alumno a Consultar");
+        }
+        return 0;
+    }
+
+    public int busquedaSecuencial(String[] arreglo, String dato) {
+        int posicion = -1;
+        for (int i = 0; i < arreglo.length; i++) {//recorremos todo el arreglo
+            if (dato.equals(arreglo[i])) {//comparamos el elemento en el arreglo con el buscado
+                posicion = i;//Si es verdadero guardamos la posicion
+                break;//Para el ciclo
+            }
+        }
+        return posicion;
+    }
 
     /**
      * @param args the command line arguments
@@ -418,6 +496,7 @@ public class FrmListaAlumno extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmListaAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

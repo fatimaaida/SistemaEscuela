@@ -62,6 +62,7 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
                 .addComponent(jLabel1))
         );
 
+        txtIdentificacion.setEditable(false);
         txtIdentificacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtIdentificacion.setForeground(new java.awt.Color(153, 153, 255));
 
@@ -180,6 +181,7 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
 
     private void cbGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGeneroActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_cbGeneroActionPerformed
     //Método que agrega un alumno a la lista de Alumnos
     private void btnAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAlumnoActionPerformed
@@ -240,6 +242,7 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmAgregarAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

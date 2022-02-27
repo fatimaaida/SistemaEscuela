@@ -22,9 +22,10 @@ public class GestionEscuela {
         listaDocentes.add(unDocente);
     }
     
-    public static void eliminarAlumno(String identificacion){
-        int valor = listaAlumnos.indexOf(identificacion)+1;
-        listaAlumnos.remove(valor);
+    public static void eliminarAlumno(int identificacion){
+        
+       
+        listaAlumnos.remove(identificacion);
     }
     
     public static void agregarCurso(Curso unCurso){
