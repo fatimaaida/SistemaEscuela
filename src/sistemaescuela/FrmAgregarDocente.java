@@ -86,6 +86,11 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
         cbProfesion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cbProfesion.setForeground(new java.awt.Color(153, 153, 255));
         cbProfesion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingeniero de Sistemas", "Ingeniero Industrial", "Ingeniero en Hardware", " " }));
+        cbProfesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbProfesionActionPerformed(evt);
+            }
+        });
 
         btnAgregarDocente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnAgregarDocente.setForeground(new java.awt.Color(153, 153, 255));
@@ -203,6 +208,10 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void cbProfesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProfesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbProfesionActionPerformed
 
     /**
      * @param args the command line arguments
