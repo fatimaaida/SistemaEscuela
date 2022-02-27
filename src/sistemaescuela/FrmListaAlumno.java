@@ -6,6 +6,7 @@ package sistemaescuela;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 //NESTOR ANTONIO SANDOVAL SANTOS
 public class FrmListaAlumno extends javax.swing.JFrame {
 
@@ -280,7 +281,8 @@ public class FrmListaAlumno extends javax.swing.JFrame {
         // TODO add your handling code here:
         int fila = tblAlumnos.getSelectedRow();
         DefaultTableModel modelo = (DefaultTableModel) tblAlumnos.getModel();
-        if (fila>=0) {
+        if (fila >= 0) {
+
             GestionEscuela.eliminarAlumno(txtIdentificacion.getText());
             modelo.removeRow(fila);
         } else {
@@ -292,10 +294,10 @@ public class FrmListaAlumno extends javax.swing.JFrame {
         // TODO add your handling code here:
         int fila = tblAlumnos.getSelectedRow();
         DefaultTableModel modelo = (DefaultTableModel) tblAlumnos.getModel();
-        if (fila>=0) {
+        if (fila >= 0) {
             GestionEscuela.eliminarAlumno(txtIdentificacion.getText());
             modelo.removeRow(fila);
-            int identifica= Integer.parseInt(txtIdentificacion.getText().trim());
+            int identifica = Integer.parseInt(txtIdentificacion.getText().trim());
             String nombre = txtNombre.getText();
             String correo = txtCorreo.getText();
             String genero = cbGenero.getSelectedItem().toString();
@@ -305,6 +307,11 @@ public class FrmListaAlumno extends javax.swing.JFrame {
             txtCorreo.setText("");
             txtIdentificacion.setText("");
             txtNombre.setText("");
+             fila = tblAlumnos.getRowCount();
+            for (int i = fila - 1; i >= 0; i--) {
+                modelo.removeRow(i);
+            }
+            listarAlumnos();
         } else {
             JOptionPane.showMessageDialog(null, "Seleccionar fila");
         }
@@ -315,15 +322,17 @@ public class FrmListaAlumno extends javax.swing.JFrame {
 
         int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
         DefaultTableModel modelo = (DefaultTableModel) tblAlumnos.getModel();
-        String[] datos = new String[4];
+        String[] datos = new String[cantidadAlumnos * 4];
 
-        for (int i = 0; i < cantidadAlumnos; i++) {
-            datos[0] = GestionEscuela.listaAlumnos.get(i).getIdentificacion();
-            datos[1] = GestionEscuela.listaAlumnos.get(i).getNombre();
-            datos[2] = GestionEscuela.listaAlumnos.get(i).getCorreo();
-            datos[3] = GestionEscuela.listaAlumnos.get(i).getGenero();
-            System.out.println(""+datos[1]);
-            //  modelo.addRow(datos);
+        int i = 0;
+        int contador = 0;
+        for (i = 0; i < datos.length; i++) {
+            datos[i] = GestionEscuela.listaAlumnos.get(contador).getIdentificacion();
+            datos[i + 1] = GestionEscuela.listaAlumnos.get(contador).getNombre();
+            datos[i + 2] = GestionEscuela.listaAlumnos.get(contador).getCorreo();
+            datos[i + 3] = GestionEscuela.listaAlumnos.get(contador).getGenero();
+            i = i + 3;
+            contador++;
         }
 
         for (int x = 0; x < (datos.length) / 4; x++) {
@@ -332,13 +341,13 @@ public class FrmListaAlumno extends javax.swing.JFrame {
             // al siguiente elemento con el índice actual + 1
             for (int y = 0; y < (datos.length / 4) - 1; y++) {
                 String codigoActual = datos[y],
-                nombreActual = datos[y + 1],
-                correoActual = datos[y + 2],
-                generoActual = datos[y + 3],
-                codigoSiguiente = datos[y + 4],
-                nombreSiguiente = datos[y + 5],
-                correoSiguiente = datos[y + 6],
-                generoSiguiente = datos[y + 7];
+                        nombreActual = datos[y + 1],
+                        correoActual = datos[y + 2],
+                        generoActual = datos[y + 3],
+                        codigoSiguiente = datos[y + 4],
+                        nombreSiguiente = datos[y + 5],
+                        correoSiguiente = datos[y + 6],
+                        generoSiguiente = datos[y + 7];
                 if (nombreActual.compareTo(nombreSiguiente) > 0) {
                     // Intercambiar
                     datos[y] = codigoSiguiente;
@@ -353,25 +362,27 @@ public class FrmListaAlumno extends javax.swing.JFrame {
             }
         }
 
-        String [] info = new String[4];
-        System.out.println(""+datos[1]);
-        int fila= tblAlumnos.getRowCount();
-        for (int i = fila-1; i >= 0; i--) {
+        //System.out.println(""+datos[1]);
+        int fila = tblAlumnos.getRowCount();
+        for (i = fila - 1; i >= 0; i--) {
             modelo.removeRow(i);
         }
-        for (int i = 0; i < cantidadAlumnos/4; i++) {
-            info[0]=datos[i];
-            info[1]=datos[i+1];
-            info[2]=datos[i+2];
-            info[3]=datos[i+3];
+        String[] info = new String[cantidadAlumnos * 4];
+        //System.out.println(""+datos.length/4);
+        for (i = 0; i < datos.length; i++) {
+            info[0] = datos[i];
+            info[1] = datos[i + 1];
+            info[2] = datos[i + 2];
+            info[3] = datos[i + 3];
             modelo.addRow(info);
+            i = i + 3;
         }
 
     }//GEN-LAST:event_btnOrdenarActionPerformed
 
     private void tblAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlumnosMouseClicked
         // TODO add your handling code here:
-        int seleccionar= tblAlumnos.rowAtPoint(evt.getPoint());
+        int seleccionar = tblAlumnos.rowAtPoint(evt.getPoint());
         txtIdentificacion.setText(String.valueOf(tblAlumnos.getValueAt(seleccionar, 0)));
         txtNombre.setText(String.valueOf(tblAlumnos.getValueAt(seleccionar, 1)));
         txtCorreo.setText(String.valueOf(tblAlumnos.getValueAt(seleccionar, 2)));

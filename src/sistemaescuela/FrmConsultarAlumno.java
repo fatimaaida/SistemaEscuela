@@ -34,7 +34,7 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         lbIdentificacion = new javax.swing.JLabel();
         btnConsultar = new javax.swing.JButton();
         lbNombre1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
         txtNombrebusqueda = new javax.swing.JTextField();
         panelAlumno = new javax.swing.JPanel();
         lbNombre = new javax.swing.JLabel();
@@ -180,12 +180,12 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         lbNombre1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbNombre1.setText("Nombre:");
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(153, 153, 255));
-        jButton1.setLabel("REGRESAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(153, 153, 255));
+        btnRegresar.setLabel("REGRESAR");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
 
@@ -282,7 +282,7 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
                         .addComponent(panelAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(141, 141, 141)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -317,7 +317,7 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(panelAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -337,24 +337,35 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         txtGenero.setText("");
 
         int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
-        String[] datos = new String[4];
-        for (int i = 0; i < cantidadAlumnos; i++) {
-            datos[0] = GestionEscuela.listaAlumnos.get(i).getIdentificacion();
-            datos[1] = GestionEscuela.listaAlumnos.get(i).getNombre();
-            datos[2] = GestionEscuela.listaAlumnos.get(i).getCorreo();
-            datos[3] = GestionEscuela.listaAlumnos.get(i).getGenero();
+        
+        int[] datos = new int[cantidadAlumnos];
+        //String[] datosS = new String[cantidadAlumnos *4];
+        int i = 0;
+        int contador = 0;
+        for (i = 0; i < cantidadAlumnos; i++) {
+            datos[i] = Integer.parseInt(GestionEscuela.listaAlumnos.get(contador).getIdentificacion());
+            //datos[i + 1] = GestionEscuela.listaAlumnos.get(contador).getNombre();
+            //datos[i + 2] = GestionEscuela.listaAlumnos.get(contador).getCorreo();
+            //datos[i + 3] = GestionEscuela.listaAlumnos.get(contador).getGenero();
+            //i = i + 3;
+            contador++;
         }
-
+        for (int j = 0; j < datos.length; j++) {
+            System.out.println("" + datos[j]);
+        }
         if (!txtIdentificacion.getText().isEmpty()) {
             try {
-                String identifica = txtIdentificacion.getText();
-                int indice = busquedaBinaria(datos, identifica);
+                int identifica = Integer.parseInt(txtIdentificacion.getText());
+                int indice = buscar(datos, identifica);
                 if (indice < 0) {
                     JOptionPane.showMessageDialog(null, "No existe Alumno con dicha Identificación");
                 } else {
-                    txtNombre.setText(datos[indice + 1]);
-                    txtCorreo.setText(datos[indice + 2]);
-                    txtGenero.setText(datos[indice + 3]);
+                    Alumno unAlumno = GestionEscuela.obtenerAlumnoPorIdentificacion(indice + "");
+                    if (unAlumno != null) {
+                        txtNombre.setText(unAlumno.getNombre());
+                        txtCorreo.setText(unAlumno.getCorreo());
+                        txtGenero.setText(unAlumno.getGenero());
+                    }
                 }
             } catch (NumberFormatException | HeadlessException ex) {
                 JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
@@ -365,10 +376,10 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     //BOTON DE REGRESAR
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void txtNombrebusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombrebusquedaActionPerformed
         // TODO add your handling code here:
@@ -377,12 +388,18 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
     private void btnConsultar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultar1ActionPerformed
         // TODO add your handling code here:
         int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
-        String[] datos = new String[4];
-        for (int i = 0; i < cantidadAlumnos; i++) {
-            datos[0] = GestionEscuela.listaAlumnos.get(i).getIdentificacion();
-            datos[1] = GestionEscuela.listaAlumnos.get(i).getNombre();
-            datos[2] = GestionEscuela.listaAlumnos.get(i).getCorreo();
-            datos[3] = GestionEscuela.listaAlumnos.get(i).getGenero();
+
+        String[] datos = new String[cantidadAlumnos * 4];
+
+        int i = 0;
+        int contador = 0;
+        for (i = 0; i < datos.length; i++) {
+            datos[i] = GestionEscuela.listaAlumnos.get(contador).getIdentificacion();
+            datos[i + 1] = GestionEscuela.listaAlumnos.get(contador).getNombre();
+            datos[i + 2] = GestionEscuela.listaAlumnos.get(contador).getCorreo();
+            datos[i + 3] = GestionEscuela.listaAlumnos.get(contador).getGenero();
+            i = i + 3;
+            contador++;
         }
 
         if (!txtNombrebusqueda.getText().isEmpty()) {
@@ -404,40 +421,28 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnConsultar1ActionPerformed
 
-    public static int busquedaBinaria(String[] arreglo, String busqueda) {
-
-        int izquierda = 0, derecha = arreglo.length - 1;
-
-        while (izquierda <= derecha) {
-            // Calculamos las mitades...
-            int indiceDelElementoDelMedio = (int) Math.floor((izquierda + derecha) / 2);
-            String elementoDelMedio = arreglo[indiceDelElementoDelMedio];
-
-            // Primero vamos a comparar y ver si el resultado es negativo, positivo o 0
-            int resultadoDeLaComparacion = busqueda.compareTo(elementoDelMedio);
-
-            // Si el resultado de la comparación es 0, significa que ambos elementos son iguales
-            // y por lo tanto quiere decir que hemos encontrado la búsqueda
-            if (resultadoDeLaComparacion == 0) {
-                return indiceDelElementoDelMedio;
-            }
-
-            // Si no, entonces vemos si está a la izquierda o derecha
-            if (resultadoDeLaComparacion < 0) {
-                derecha = indiceDelElementoDelMedio - 1;
+    public static int buscar(int[] arreglo, int dato) {
+        int inicio = 0;
+        int fin = arreglo.length - 1;
+        int pos;
+        while (inicio <= fin) {
+            pos = (inicio + fin) / 2;
+            if (arreglo[pos] == dato) {
+                return pos;
+            } else if (arreglo[pos] < dato) {
+                inicio = pos + 1;
             } else {
-                izquierda = indiceDelElementoDelMedio + 1;
+                fin = pos - 1;
             }
         }
-        // Si no se rompió el ciclo ni se regresó el índice, entonces el elemento no
-        // existe
         return -1;
     }
+    
     
     public int busquedaSecuencial(String[] arreglo, String dato) {
         int posicion = -1;
         for (int i = 0; i < arreglo.length; i++) {//recorremos todo el arreglo
-            if (dato.equals( arreglo[i])) {//comparamos el elemento en el arreglo con el buscado
+            if (dato.equals(arreglo[i])) {//comparamos el elemento en el arreglo con el buscado
                 posicion = i;//Si es verdadero guardamos la posicion
                 break;//Para el ciclo
             }
@@ -483,7 +488,7 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnConsultar1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

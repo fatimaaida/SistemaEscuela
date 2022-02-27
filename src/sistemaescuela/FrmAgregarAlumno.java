@@ -12,6 +12,7 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
     public FrmAgregarAlumno() {
         initComponents();
         setLocationRelativeTo(this);
+        txtIdentificacion.setText(GestionEscuela.listaAlumnos.size()+"");
     }
     
     /**
@@ -195,7 +196,7 @@ public class FrmAgregarAlumno extends javax.swing.JFrame {
                     GestionEscuela.agregarAlumno(unAlumno);
                     JOptionPane.showMessageDialog(null, "Alumno Agregado");
                     txtCorreo.setText("");
-                    txtIdentificacion.setText("");
+                    txtIdentificacion.setText(GestionEscuela.listaAlumnos.size()+"");
                     txtNombre.setText("");
                 }else{
                     JOptionPane.showMessageDialog(null, "Ya existe un alumno con esa identificación");
