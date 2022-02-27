@@ -3,6 +3,7 @@ package sistemaescuela;
 // FATIMA AIDA LEON REBOLLO
 public class Docente extends Persona{
     private String Profesion;
+    // METODOS PARA LA CLASE DOCENTE
     public Docente(String Profesion, String identificacion, 
             String nombre, String correo) {
         super(identificacion, nombre, correo);

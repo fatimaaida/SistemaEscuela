@@ -113,7 +113,7 @@ public class FrmListaDocente extends javax.swing.JFrame {
 
         btnEditar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(153, 153, 255));
-        btnEditar.setLabel("EDITAR");
+        btnEditar.setLabel("GUARDAR");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
