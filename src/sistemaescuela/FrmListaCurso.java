@@ -1,9 +1,10 @@
 //
 package sistemaescuela;
-
+import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-// FATIMA AIDA LEON REBOLLO
+//NESTOR ANTONIO SANDOVAL SANTOS
 public class FrmListaCurso extends javax.swing.JFrame {
 
     /**
@@ -44,8 +45,17 @@ public class FrmListaCurso extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCursos = new javax.swing.JTable();
         btnRegresar = new javax.swing.JButton();
+        btnOrdenar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        lbCodigo = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        lbNombreC = new javax.swing.JLabel();
+        txtNombreCurso = new javax.swing.JTextField();
+        lbDuracion = new javax.swing.JLabel();
+        txtNumeroHoras = new javax.swing.JTextField();
+        lbDocente = new javax.swing.JLabel();
+        cbDocente = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -62,7 +72,7 @@ public class FrmListaCurso extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(125, 125, 125)
                 .addComponent(jLabel1)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,6 +112,15 @@ public class FrmListaCurso extends javax.swing.JFrame {
             }
         });
 
+        btnOrdenar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnOrdenar.setForeground(new java.awt.Color(153, 153, 255));
+        btnOrdenar.setText("ORDENAR");
+        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarActionPerformed(evt);
+            }
+        });
+
         btnEditar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(153, 153, 255));
         btnEditar.setLabel("GUARDAR");
@@ -120,6 +139,30 @@ public class FrmListaCurso extends javax.swing.JFrame {
             }
         });
 
+        lbCodigo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbCodigo.setText("Código del Curso:");
+
+        txtCodigo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtCodigo.setForeground(new java.awt.Color(153, 153, 255));
+
+        lbNombreC.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbNombreC.setText("Nombre Curso:");
+
+        txtNombreCurso.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtNombreCurso.setForeground(new java.awt.Color(153, 153, 255));
+
+        lbDuracion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbDuracion.setText("Duración(Horas):");
+
+        txtNumeroHoras.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtNumeroHoras.setForeground(new java.awt.Color(153, 153, 255));
+
+        lbDocente.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbDocente.setText("Docente:");
+
+        cbDocente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        cbDocente.setForeground(new java.awt.Color(153, 153, 255));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,46 +171,159 @@ public class FrmListaCurso extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbCodigo)
+                            .addComponent(lbNombreC, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbDuracion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbDocente, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombreCurso)
+                            .addComponent(txtNumeroHoras)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnOrdenar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNombreC))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNumeroHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDuracion))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbDocente)
+                    .addComponent(cbDocente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //BOTON DE REGRESAR
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    //BOTON DE EDITAR
+    private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
+        // TODO add your handling code here:
+
+        int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
+        DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
+        String[] datos = new String[4];
+
+        for (int i = 0; i < cantidadAlumnos; i++) {
+            datos[0] = GestionEscuela.listaAlumnos.get(i).getIdentificacion();
+            datos[1] = GestionEscuela.listaAlumnos.get(i).getNombre();
+            datos[2] = GestionEscuela.listaAlumnos.get(i).getCorreo();
+            datos[3] = GestionEscuela.listaAlumnos.get(i).getGenero();
+            System.out.println(""+datos[1]);
+            //  modelo.addRow(datos);
+        }
+
+        for (int x = 0; x < (datos.length) / 4; x++) {
+            // Aquí "y" se detiene antes de llegar
+            // a length - 1 porque dentro del for, accedemos
+            // al siguiente elemento con el índice actual + 1
+            for (int y = 0; y < (datos.length / 4) - 1; y++) {
+                String codigoActual = datos[y],
+                nombreActual = datos[y + 1],
+                correoActual = datos[y + 2],
+                generoActual = datos[y + 3],
+                codigoSiguiente = datos[y + 4],
+                nombreSiguiente = datos[y + 5],
+                correoSiguiente = datos[y + 6],
+                generoSiguiente = datos[y + 7];
+                if (nombreActual.compareTo(nombreSiguiente) > 0) {
+                    // Intercambiar
+                    datos[y] = codigoSiguiente;
+                    datos[y + 1] = nombreSiguiente;
+                    datos[y + 2] = correoSiguiente;
+                    datos[y + 3] = generoSiguiente;
+                    datos[y + 4] = codigoActual;
+                    datos[y + 5] = nombreActual;
+                    datos[y + 6] = correoActual;
+                    datos[y + 7] = generoActual;
+                }
+            }
+        }
+
+        String [] info = new String[4];
+        System.out.println(""+datos[1]);
+        int fila= tblCursos.getRowCount();
+        for (int i = fila-1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+        for (int i = 0; i < cantidadAlumnos/4; i++) {
+            info[0]=datos[i];
+            info[1]=datos[i+1];
+            info[2]=datos[i+2];
+            info[3]=datos[i+3];
+            modelo.addRow(info);
+        }
+    }//GEN-LAST:event_btnOrdenarActionPerformed
+
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
+        int fila = tblCursos.getSelectedRow();
+        DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
+        if (fila>=0) {
+            GestionEscuela.eliminarAlumno(txtCodigo.getText());
+            modelo.removeRow(fila);
+            int identifica= Integer.parseInt(txtCodigo.getText().trim());
+            String nombre = txtNombreCurso.getText();
+            String correo = txtNumeroHoras.getText();
+            String genero = cbDocente.getSelectedItem().toString();
+            Alumno unAlumno = new Alumno(genero, txtCodigo.getText().trim(), nombre, correo);
+            GestionEscuela.agregarAlumno(unAlumno);
+            JOptionPane.showMessageDialog(null, "Alumno Actualizado");
+            txtNumeroHoras.setText("");
+            txtCodigo.setText("");
+            txtNombreCurso.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccionar fila");
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    //BOTON DE ELIMINAR
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        int fila = tblCursos.getSelectedRow();
+        DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
+        if (fila>=0) {
+            GestionEscuela.eliminarAlumno(txtCodigo.getText());
+            modelo.removeRow(fila);
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccionar fila");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
@@ -208,10 +364,19 @@ public class FrmListaCurso extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnOrdenar;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JComboBox<String> cbDocente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbCodigo;
+    private javax.swing.JLabel lbDocente;
+    private javax.swing.JLabel lbDuracion;
+    private javax.swing.JLabel lbNombreC;
     private javax.swing.JTable tblCursos;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtNombreCurso;
+    private javax.swing.JTextField txtNumeroHoras;
     // End of variables declaration//GEN-END:variables
 }

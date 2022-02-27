@@ -78,32 +78,27 @@
               <Component id="btnRegresar" min="-2" pref="107" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="lbIdentificacion" min="-2" pref="99" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtIdentificacion" min="-2" pref="215" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lbNombre" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbCorreo" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbGenero" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtCorreo" min="-2" pref="224" max="-2" attributes="0"/>
+                          <Component id="txtNombre" min="-2" pref="224" max="-2" attributes="0"/>
+                          <Component id="cbGenero" min="-2" pref="224" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="lbCorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lbGenero" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtCorreo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cbGenero" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                      <Component id="lbIdentificacion" min="-2" pref="99" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtIdentificacion" min="-2" pref="215" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -123,25 +118,25 @@
                   <Component id="btnRegresar" alignment="3" max="32767" attributes="0"/>
                   <Component id="btnOrdenar" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbIdentificacion" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtIdentificacion" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lbNombre" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombre" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbGenero" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cbGenero" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lbCorreo" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCorreo" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lbGenero" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbGenero" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
