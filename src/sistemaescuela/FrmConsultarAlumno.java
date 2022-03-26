@@ -241,9 +241,9 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         pnColorLayout.setHorizontalGroup(
             pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnColorLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(87, 87, 87)
                 .addComponent(lbConsultarAlum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(111, 111, 111))
+                .addGap(84, 84, 84))
         );
         pnColorLayout.setVerticalGroup(
             pnColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
