@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 //NESTOR ANTONIO SANDOVAL SANTOS
-public class FrmListaCurso extends javax.swing.JFrame {
+public class FrmListaCurso extends javax.swing.JFrame{
 
     /**
      * Creates new form FrmListaCurso
@@ -244,7 +244,7 @@ public class FrmListaCurso extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnEditarActionPerformed
-
+        
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         
