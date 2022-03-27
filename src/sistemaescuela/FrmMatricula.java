@@ -7,6 +7,7 @@ package sistemaescuela;
 //LIBRERIAS
 import java.awt.Color;
 import java.util.Date;
+import javafx.scene.control.ComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 //FATIMA AIDA LEON REBOLLO
@@ -20,6 +21,7 @@ public class FrmMatricula extends javax.swing.JFrame {
         mostrarDatos();
     }
     private void mostrarDatos(){
+        //ComboBox<>
         int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) cbAlumno.getModel();
         cbAlumno.setModel(modelo);
@@ -29,7 +31,7 @@ public class FrmMatricula extends javax.swing.JFrame {
         
         int cantidadCursos = GestionEscuela.listaCursos.size();
         DefaultComboBoxModel modelo2= (DefaultComboBoxModel) cbCursos.getModel();
-        cbCursos.setModel(modelo2);
+        
         for(int i=0;i<cantidadCursos;i++){
             modelo2.addElement(GestionEscuela.listaCursos.get(i));
         }

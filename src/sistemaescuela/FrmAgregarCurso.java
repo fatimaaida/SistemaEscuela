@@ -11,6 +11,7 @@ public class FrmAgregarCurso extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
         cargarDocentes();
+        txtCodigo.setText(GestionEscuela.listaCursos.size()+"");
     }
     //Obtiene los docentes a partir de la lista y los agrega en el combo
     private void cargarDocentes(){
@@ -106,6 +107,7 @@ public class FrmAgregarCurso extends javax.swing.JFrame {
         txtNombreCurso.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtNombreCurso.setForeground(new java.awt.Color(153, 153, 255));
 
+        txtCodigo.setEditable(false);
         txtCodigo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtCodigo.setForeground(new java.awt.Color(153, 153, 255));
 
@@ -166,9 +168,6 @@ public class FrmAgregarCurso extends javax.swing.JFrame {
                         .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-
-        btnAgregar.getAccessibleContext().setAccessibleName("AGREGAR");
-        btnRegresar.getAccessibleContext().setAccessibleName("REGRESAR");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

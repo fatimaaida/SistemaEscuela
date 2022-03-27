@@ -28,6 +28,12 @@ public class GestionEscuela {
         listaAlumnos.remove(identificacion);
     }
     
+    public static void eliminarDocente(int identificacion){
+        
+       
+        listaDocentes.remove(identificacion);
+    }
+    
     public static void agregarCurso(Curso unCurso){
         listaCursos.add(unCurso);
     }

@@ -12,6 +12,7 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
     public FrmAgregarDocente() {
         initComponents();
         setLocationRelativeTo(this);
+        txtIdentificacion.setText(GestionEscuela.listaDocentes.size()+"");
     }
 
     /**
@@ -62,6 +63,7 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        txtIdentificacion.setEditable(false);
         txtIdentificacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtIdentificacion.setForeground(new java.awt.Color(153, 153, 255));
 

@@ -112,7 +112,7 @@ public class FrmListaDocente extends javax.swing.JFrame {
 
         btnEditar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(153, 153, 255));
-        btnEditar.setLabel("GUARDAR");
+        btnEditar.setText("EDITAR");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -122,6 +122,7 @@ public class FrmListaDocente extends javax.swing.JFrame {
         lbIdentificacion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lbIdentificacion.setText("Identificación:");
 
+        txtIdentificacion.setEditable(false);
         txtIdentificacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtIdentificacion.setForeground(new java.awt.Color(153, 153, 255));
 
@@ -150,6 +151,11 @@ public class FrmListaDocente extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        tblDocentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDocentesMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblDocentes);
@@ -248,20 +254,181 @@ public class FrmListaDocente extends javax.swing.JFrame {
 
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
         // TODO add your handling code here:
+        int cantidadDocentes = GestionEscuela.listaDocentes.size();
+        DefaultTableModel modelo = (DefaultTableModel) tblDocentes.getModel();
+        String[] datos = new String[cantidadDocentes * 4];
+
+        int i = 0;
+        int contador = 0;
+        for (i = 0; i < datos.length; i++) {
+            datos[i] = GestionEscuela.listaDocentes.get(contador).getIdentificacion();
+            datos[i + 1] = GestionEscuela.listaDocentes.get(contador).getNombre();
+            datos[i + 2] = GestionEscuela.listaDocentes.get(contador).getCorreo();
+            datos[i + 3] = GestionEscuela.listaDocentes.get(contador).getProfesion();
+            i = i + 3;
+            contador++;
+        }
+
+        String codigo;
+        String nombre;
+        String correo;
+        String genero;
+        int contador1 = 1, contador2 = 5;
+
+        for (i = 0; i < ((datos.length) / 4); i++) {
+            contador1 = 1;
+            contador2 = 5;
+            for (int j = 0; j < ((datos.length) / 4) - 1; j++) {
+                if (datos[contador1].compareTo(datos[contador2]) > 0) {
+
+                    nombre = datos[contador1];
+                    datos[contador1] = datos[contador2];
+                    datos[contador2] = nombre;
+
+                    codigo = datos[contador1 - 1];
+                    datos[contador1 - 1] = datos[contador2 - 1];
+                    datos[contador2 - 1] = codigo;
+
+                    correo = datos[contador1 + 1];
+                    datos[contador1 + 1] = datos[contador2 + 1];
+                    datos[contador2 + 1] = correo;
+
+                    genero = datos[contador1 + 2];
+                    datos[contador1 + 2] = datos[contador2 + 2];
+                    datos[contador2 + 2] = genero;
+
+                }
+                contador1 = contador1 + 4;
+                contador2 = contador2 + 4;
+
+                if (contador2 >= datos.length) {
+                    j = 100;
+                }
+            }
+
+        }
+
+        //System.out.println(""+datos[1]);
+        int fila = tblDocentes.getRowCount();
+        for (i = fila - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+        String[] info = new String[cantidadDocentes * 4];
+        //System.out.println(""+datos.length/4);
+        for (i = 0; i < datos.length; i++) {
+            info[0] = datos[i];
+            info[1] = datos[i + 1];
+            info[2] = datos[i + 2];
+            info[3] = datos[i + 3];
+            modelo.addRow(info);
+            i = i + 3;
+        }
+
     }//GEN-LAST:event_btnOrdenarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        int fila = tblDocentes.getSelectedRow();
+        DefaultTableModel modelo = (DefaultTableModel) tblDocentes.getModel();
+        if (fila >= 0) {
+
+            GestionEscuela.eliminarDocente(hola(txtIdentificacion.getText()));
+            modelo.removeRow(fila);
+            listarDocentes();
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccionar fila");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    public int hola(String buscar) {
+        int cantidadDocentes = GestionEscuela.listaDocentes.size();
+
+        String[] datos = new String[cantidadDocentes * 4];
+
+        int i = 0;
+        int contador = 0;
+        for (i = 0; i < datos.length; i++) {
+            datos[i] = GestionEscuela.listaDocentes.get(contador).getIdentificacion();
+            datos[i + 1] = GestionEscuela.listaDocentes.get(contador).getNombre();
+            datos[i + 2] = GestionEscuela.listaDocentes.get(contador).getCorreo();
+            datos[i + 3] = GestionEscuela.listaDocentes.get(contador).getProfesion();
+            i = i + 3;
+            contador++;
+        }
+
+        if (!buscar.isEmpty()) {
+            try {
+                String identifica = buscar;
+                int indice = busquedaSecuencial(datos, identifica);
+                if (indice < 0) {
+                    JOptionPane.showMessageDialog(null, "No existe el docente con dicha Identificación");
+                } else {
+                    if (indice <= 0) {
+                        return 0;
+                    } else {
+                        indice = indice / 4;
+                        return indice;
+                    }
+                }
+            } catch (NumberFormatException | HeadlessException ex) {
+                JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe Ingresar la identificación del docente a Consultar");
+        }
+        return 0;
+    }
+    
+    public int busquedaSecuencial(String[] arreglo, String dato) {
+        int posicion = -1;
+        for (int i = 0; i < arreglo.length; i++) {//recorremos todo el arreglo
+            if (dato.equals(arreglo[i])) {//comparamos el elemento en el arreglo con el buscado
+                posicion = i;//Si es verdadero guardamos la posicion
+                break;//Para el ciclo
+            }
+        }
+        return posicion;
+    }
+    
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
+        int fila = tblDocentes.getSelectedRow();
+        DefaultTableModel modelo = (DefaultTableModel) tblDocentes.getModel();
+        if (fila >= 0) {
+            GestionEscuela.eliminarDocente(hola(txtIdentificacion.getText()));
+            modelo.removeRow(fila);
+            int identifica = Integer.parseInt(txtIdentificacion.getText().trim());
+            String nombre = txtNombre.getText();
+            String correo = txtCorreo.getText();
+            String genero = cbProfesion.getSelectedItem().toString();
+            Docente unDocente = new Docente(genero, txtIdentificacion.getText().trim(), nombre, correo);
+            GestionEscuela.agregarDocente(unDocente);
+            JOptionPane.showMessageDialog(null, "Docente Actualizado");
+            txtCorreo.setText("");
+            txtIdentificacion.setText("");
+            txtNombre.setText("");
+            fila = tblDocentes.getRowCount();
+            for (int i = fila - 1; i >= 0; i--) {
+                modelo.removeRow(i);
+            }
+            listarDocentes();
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccionar fila");
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void tblDocentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocentesMouseClicked
+        // TODO add your handling code here:
+        int seleccionar = tblDocentes.rowAtPoint(evt.getPoint());
+        txtIdentificacion.setText(String.valueOf(tblDocentes.getValueAt(seleccionar, 0)));
+        txtNombre.setText(String.valueOf(tblDocentes.getValueAt(seleccionar, 1)));
+        txtCorreo.setText(String.valueOf(tblDocentes.getValueAt(seleccionar, 2)));
+    }//GEN-LAST:event_tblDocentesMouseClicked
 
     /**
      * @param args the command line arguments
