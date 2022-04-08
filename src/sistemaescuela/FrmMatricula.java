@@ -166,7 +166,7 @@ public class FrmMatricula extends javax.swing.JFrame {
             GestionEscuela.agregarMatricula(unaMatricula);
             JOptionPane.showMessageDialog(null, "Matricula Agregada");
         }else{
-            JOptionPane.showMessageDialog(null, "Ya existe el mismo alumno matriculado en el mismo curso");
+            JOptionPane.showMessageDialog(null, "Ya existe el registro del alumno en el curso");
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 

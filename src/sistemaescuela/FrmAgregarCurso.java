@@ -107,7 +107,6 @@ public class FrmAgregarCurso extends javax.swing.JFrame {
         txtNombreCurso.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtNombreCurso.setForeground(new java.awt.Color(153, 153, 255));
 
-        txtCodigo.setEditable(false);
         txtCodigo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtCodigo.setForeground(new java.awt.Color(153, 153, 255));
 
