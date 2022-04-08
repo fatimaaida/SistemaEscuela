@@ -7,7 +7,7 @@ package sistemaescuela;
 //LIBRERIAS
 import java.awt.Color;
 import java.util.Date;
-import javafx.scene.control.ComboBox;
+//import javafx.scene.control.ComboBox
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 //FATIMA AIDA LEON REBOLLO
