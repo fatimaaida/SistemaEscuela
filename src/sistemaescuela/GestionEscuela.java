@@ -125,5 +125,5 @@ public class GestionEscuela {
          }        
          listaDocentes.set(posicion, unDocente);
      }
-    
+
 }

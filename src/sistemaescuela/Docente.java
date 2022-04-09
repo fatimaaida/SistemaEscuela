@@ -20,9 +20,11 @@ public class Docente extends Persona{
     public String toString() {
         return this.getNombre() + " " + this.getProfesion();
     }
+   
+    public String identificacion(){
+    //Boolean docente=null;
+    return nombre+" docente";
+}
 
-    @Override
-    public String nombre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 }

@@ -192,7 +192,7 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Docente Agregado Correctamente");
                     txtCorreo.setText("");
                     txtNombre.setText("");
-                    txtIdentificacion.setText("");
+                    txtIdentificacion.setText(GestionEscuela.listaDocentes.size()+"");
                 }else{
                     JOptionPane.showMessageDialog(null, "Ya existe docente con esa identificación");
                 }

@@ -4,7 +4,7 @@ package sistemaescuela;
 // FATIMA AIDA LEON REBOLLO
 abstract class Persona {
     private String identificacion;
-    private String nombre;
+    String nombre;
     private String correo;
 
     public Persona(String identificacion, String nombre, String correo) {
@@ -37,6 +37,10 @@ abstract class Persona {
         this.correo = correo;
     }
     
-    public abstract String nombre();
-    
+    public String identificacion(){
+    //Boolean docente=null;
+    return nombre;
 }
+}
+
+

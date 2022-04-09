@@ -4,25 +4,31 @@
  */
 package sistemaescuela;
 // FATIMA AIDA LEON REBOLLO
-public class Alumno extends Persona{
+
+public class Alumno extends Persona {
+
     private String Genero;
+
     public Alumno(String Genero, String identificacion, String nombre, String correo) {
         super(identificacion, nombre, correo);
         this.Genero = Genero;
-    }   
+    }
+
     public String getGenero() {
         return Genero;
     }
+
     public void setGenero(String Genero) {
         this.Genero = Genero;
     }
+
     @Override
     public String toString() {
         return this.getNombre();
     }
-
-    @Override
-    public String nombre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+    public String identificacion(){
+    //Boolean docente=null;
+    return nombre+" alumno";
+}
 }
