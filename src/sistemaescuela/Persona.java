@@ -3,6 +3,7 @@ package sistemaescuela;
 
 // FATIMA AIDA LEON REBOLLO
 abstract class Persona {
+
     private String identificacion;
     String nombre;
     private String correo;
@@ -10,7 +11,7 @@ abstract class Persona {
     public Persona(String identificacion, String nombre, String correo) {
         this.identificacion = identificacion;
         this.nombre = nombre;
-        this.correo=correo;
+        this.correo = correo;
     }
 
     public String getIdentificacion() {
@@ -36,11 +37,9 @@ abstract class Persona {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    
-    public String identificacion(){
-    //Boolean docente=null;
-    return nombre;
-}
-}
 
-
+    public String identificacion() {
+        //Boolean docente=null;
+        return nombre;
+    }
+}

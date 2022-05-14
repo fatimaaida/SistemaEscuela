@@ -34,6 +34,10 @@ public class GestionEscuela {
         listaDocentes.remove(identificacion);
     }
     
+     public static void eliminarCurso(int identificacion){  
+        listaCursos.remove(identificacion);
+    }
+    
     public static void agregarCurso(Curso unCurso){
         listaCursos.add(unCurso);
     }
@@ -126,4 +130,15 @@ public class GestionEscuela {
          listaDocentes.set(posicion, unDocente);
      }
 
+     public static void actualizarCurso(Curso unCurso){
+         int posicion=0;
+         String identificacion = unCurso.getCodigo();
+         for(int i=0;i<listaCursos.size();i++){
+             if(listaCursos.get(i).getCodigo().equals(identificacion)){
+                 posicion = i;
+                 break;
+             }
+         }        
+         listaCursos.set(posicion, unCurso);
+     }
 }

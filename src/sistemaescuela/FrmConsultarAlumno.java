@@ -337,7 +337,7 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
         txtNombre.setText("");
         txtCorreo.setText("");
         txtGenero.setText("");
-
+        txtNombrebusqueda.setText("");
         int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
 
         int[] datos = new int[cantidadAlumnos];
@@ -417,17 +417,26 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
 
     private void btnConsultar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultar1ActionPerformed
         // TODO add your handling code here:
+        txtNombre.setText("");
+        txtCorreo.setText("");
+        txtGenero.setText("");
+        txtIdentificacion.setText("");
         int cantidadAlumnos = GestionEscuela.listaAlumnos.size();
 
         String[] datos = new String[cantidadAlumnos * 4];
+        String[] datos2 = new String[cantidadAlumnos * 4];
 
         int i = 0;
         int contador = 0;
         for (i = 0; i < datos.length; i++) {
-            datos[i] = GestionEscuela.listaAlumnos.get(contador).getIdentificacion();
+            datos2[i] = GestionEscuela.listaAlumnos.get(contador).getIdentificacion();
+            datos[i] = "";
             datos[i + 1] = GestionEscuela.listaAlumnos.get(contador).getNombre();
-            datos[i + 2] = GestionEscuela.listaAlumnos.get(contador).getCorreo();
-            datos[i + 3] = GestionEscuela.listaAlumnos.get(contador).getGenero();
+            datos2[i + 1] = GestionEscuela.listaAlumnos.get(contador).getNombre();
+            datos[i + 2] = "";
+            datos2[i + 2] = GestionEscuela.listaAlumnos.get(contador).getCorreo();
+            datos[i + 3] = "";
+            datos2[i + 3] = GestionEscuela.listaAlumnos.get(contador).getGenero();
             i = i + 3;
             contador++;
         }
@@ -437,11 +446,11 @@ public class FrmConsultarAlumno extends javax.swing.JFrame {
                 String identifica = txtNombrebusqueda.getText();
                 int indice = busquedaSecuencial(datos, identifica);
                 if (indice < 0) {
-                    JOptionPane.showMessageDialog(null, "No existe Alumno con dicha Identificación");
+                    JOptionPane.showMessageDialog(null, "No existe Alumno con dicho nombre");
                 } else {
                     txtNombre.setText(datos[indice]);
-                    txtCorreo.setText(datos[indice + 1]);
-                    txtGenero.setText(datos[indice + 2]);
+                    txtCorreo.setText(datos2[indice + 1]);
+                    txtGenero.setText(datos2[indice + 2]);
                 }
             } catch (NumberFormatException | HeadlessException ex) {
                 JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");

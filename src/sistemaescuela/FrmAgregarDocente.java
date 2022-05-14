@@ -96,7 +96,7 @@ public class FrmAgregarDocente extends javax.swing.JFrame {
 
         btnAgregarDocente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnAgregarDocente.setForeground(new java.awt.Color(153, 153, 255));
-        btnAgregarDocente.setText("AGRREGAR");
+        btnAgregarDocente.setText("AGREGAR");
         btnAgregarDocente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarDocenteActionPerformed(evt);

@@ -1,9 +1,11 @@
 //
 package sistemaescuela;
 //LIBRERIAS
+
 import java.awt.HeadlessException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+
 public class FrmAgregarCurso extends javax.swing.JFrame {
 
     // FATIMA AIDA LEON REBOLLO
@@ -11,16 +13,18 @@ public class FrmAgregarCurso extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
         cargarDocentes();
-        txtCodigo.setText(GestionEscuela.listaCursos.size()+"");
+        txtCodigo.setText(GestionEscuela.listaCursos.size() + "");
     }
+
     //Obtiene los docentes a partir de la lista y los agrega en el combo
-    private void cargarDocentes(){
+    private void cargarDocentes() {
         int cantidad = GestionEscuela.listaDocentes.size();
-        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cbDocente.getModel();      
-        for(int i =0; i<cantidad;i++){
-            modelo.addElement(GestionEscuela.listaDocentes.get(i));            
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cbDocente.getModel();
+        for (int i = 0; i < cantidad; i++) {
+            modelo.addElement(GestionEscuela.listaDocentes.get(i));
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -107,6 +111,7 @@ public class FrmAgregarCurso extends javax.swing.JFrame {
         txtNombreCurso.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtNombreCurso.setForeground(new java.awt.Color(153, 153, 255));
 
+        txtCodigo.setEditable(false);
         txtCodigo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtCodigo.setForeground(new java.awt.Color(153, 153, 255));
 
@@ -174,31 +179,37 @@ public class FrmAgregarCurso extends javax.swing.JFrame {
     //Método que agrega un curso a la lista de cursos
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-        if (!txtCodigo.getText().isEmpty() && !txtNombreCurso.getText().isEmpty() 
-                && !txtNumeroHoras.getText().isEmpty()){
-            try{
+        Docente unDocente = (Docente) cbDocente.getSelectedItem();
+        if (unDocente != null) {
+            if (!txtCodigo.getText().isEmpty() && !txtNombreCurso.getText().isEmpty()
+                    && !txtNumeroHoras.getText().isEmpty()) {
+                try {
                     String codigoCurso = txtCodigo.getText().trim();
                     String nombre = txtNombreCurso.getText().trim();
                     boolean existeCurso = GestionEscuela.existeCurso(codigoCurso);
-                    if(!existeCurso){
+                    if (!existeCurso) {
                         int horas = Integer.parseInt(txtNumeroHoras.getText().trim());
-                        Docente unDocente = (Docente)cbDocente.getSelectedItem();
-                        Curso unCurso = new Curso(codigoCurso,nombre,horas,unDocente);
+
+                        Curso unCurso = new Curso(codigoCurso, nombre, horas, unDocente);
                         GestionEscuela.agregarCurso(unCurso);
                         JOptionPane.showMessageDialog(null, "Curso Agregado Correctamente");
                         txtCodigo.setText("");
                         txtNombreCurso.setText("");
                         txtNumeroHoras.setText("");
-                    }else{
+                        txtCodigo.setText(GestionEscuela.listaCursos.size() + "");
+                    } else {
                         JOptionPane.showMessageDialog(null, "Ya existe curso con ese código");
                     }
-                }catch(NumberFormatException | HeadlessException ex){
+                } catch (NumberFormatException | HeadlessException ex) {
                     JOptionPane.showMessageDialog(null, "No cumple el formato " + ex.getMessage());
                 }
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Faltan datos, verificar..");
-        } 
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Faltan datos, verificar..");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Agrega un docente primero");
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     //BOTON REGRESAR

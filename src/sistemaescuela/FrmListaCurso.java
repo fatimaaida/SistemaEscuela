@@ -1,12 +1,13 @@
 //
 package sistemaescuela;
+
 import java.awt.HeadlessException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 //NESTOR ANTONIO SANDOVAL SANTOS
-public class FrmListaCurso extends javax.swing.JFrame{
+public class FrmListaCurso extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmListaCurso
@@ -16,20 +17,21 @@ public class FrmListaCurso extends javax.swing.JFrame{
         setLocationRelativeTo(this);
         listarCursos();
     }
+
     // METODO DE LISTAR LOS CURSOS
-    public void listarCursos(){
+    public void listarCursos() {
         int cantidad = GestionEscuela.listaCursos.size();
         DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
         tblCursos.setModel(modelo);
         String[] datos = new String[4];
-        for(int i=0;i<cantidad;i++){
-            datos[0]=GestionEscuela.listaCursos.get(i).getCodigo();
-            datos[1]=GestionEscuela.listaCursos.get(i).getNombre();
-            datos[2]=Integer.toString(GestionEscuela.listaCursos.get(i).getHoras());
-            datos[3]=GestionEscuela.listaCursos.get(i).getUnDocente().getNombre();
-            modelo.addRow(datos);           
+        for (int i = 0; i < cantidad; i++) {
+            datos[0] = GestionEscuela.listaCursos.get(i).getCodigo();
+            datos[1] = GestionEscuela.listaCursos.get(i).getNombre();
+            datos[2] = Integer.toString(GestionEscuela.listaCursos.get(i).getHoras());
+            datos[3] = GestionEscuela.listaCursos.get(i).getUnDocente().getNombre();
+            modelo.addRow(datos);
         }
-        
+
     }
 
     /**
@@ -103,6 +105,11 @@ public class FrmListaCurso extends javax.swing.JFrame{
             }
         });
         tblCursos.setSelectionBackground(new java.awt.Color(153, 153, 255));
+        tblCursos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblCursosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblCursos);
 
         btnRegresar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -125,7 +132,7 @@ public class FrmListaCurso extends javax.swing.JFrame{
 
         btnEditar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(153, 153, 255));
-        btnEditar.setLabel("GUARDAR");
+        btnEditar.setText("EDITAR");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -144,6 +151,7 @@ public class FrmListaCurso extends javax.swing.JFrame{
         lbCodigo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lbCodigo.setText("Código del Curso:");
 
+        txtCodigo.setEditable(false);
         txtCodigo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtCodigo.setForeground(new java.awt.Color(153, 153, 255));
 
@@ -237,18 +245,174 @@ public class FrmListaCurso extends javax.swing.JFrame{
 
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
         // TODO add your handling code here:
+        int cantidadCursos = GestionEscuela.listaCursos.size();
+        DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
+        String[] datos = new String[cantidadCursos * 4];
 
+        int i = 0;
+        int contador = 0;
+        for (i = 0; i < datos.length; i++) {
+            datos[i] = GestionEscuela.listaCursos.get(contador).getCodigo();
+            datos[i + 1] = GestionEscuela.listaCursos.get(contador).getNombre();
+            datos[i + 2] = GestionEscuela.listaCursos.get(contador).getHoras()+"";
+            datos[i + 3] = GestionEscuela.listaCursos.get(contador).getUnDocente()+"";
+            i = i + 3;
+            contador++;
+        }
+
+        String codigo;
+        String nombre;
+        String correo;
+        String genero;
+        int contador1 = 1, contador2 = 5;
+
+        for (i = 0; i < ((datos.length) / 4); i++) {
+            contador1 = 1;
+            contador2 = 5;
+            for (int j = 0; j < ((datos.length) / 4) - 1; j++) {
+                if (datos[contador1].compareTo(datos[contador2]) > 0) {
+
+                    nombre = datos[contador1];
+                    datos[contador1] = datos[contador2];
+                    datos[contador2] = nombre;
+
+                    codigo = datos[contador1 - 1];
+                    datos[contador1 - 1] = datos[contador2 - 1];
+                    datos[contador2 - 1] = codigo;
+
+                    correo = datos[contador1 + 1];
+                    datos[contador1 + 1] = datos[contador2 + 1];
+                    datos[contador2 + 1] = correo;
+
+                    genero = datos[contador1 + 2];
+                    datos[contador1 + 2] = datos[contador2 + 2];
+                    datos[contador2 + 2] = genero;
+
+                }
+                contador1 = contador1 + 4;
+                contador2 = contador2 + 4;
+
+                if (contador2 >= datos.length) {
+                    j = 100;
+                }
+            }
+
+        }
+
+        //System.out.println(""+datos[1]);
+        int fila = tblCursos.getRowCount();
+        for (i = fila - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+        String[] info = new String[cantidadCursos * 4];
+        //System.out.println(""+datos.length/4);
+        for (i = 0; i < datos.length; i++) {
+            info[0] = datos[i];
+            info[1] = datos[i + 1];
+            info[2] = datos[i + 2];
+            info[3] = datos[i + 3];
+            modelo.addRow(info);
+            i = i + 3;
+        }
     }//GEN-LAST:event_btnOrdenarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        
+        int fila = tblCursos.getSelectedRow();
+        DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
+        if (fila >= 0) {
+            GestionEscuela.eliminarCurso(hola(txtCodigo.getText()));
+            modelo.removeRow(fila);
+            int identifica = Integer.parseInt(txtCodigo.getText().trim());
+            String nombre = txtNombreCurso.getText();
+            String correo = txtNumeroHoras.getText();
+            Docente unDocente = (Docente) cbDocente.getSelectedItem();
+            Curso unCurso = new Curso(nombre, txtCodigo.getText().trim(), Integer.parseInt(correo), unDocente);
+            GestionEscuela.agregarCurso(unCurso);
+            JOptionPane.showMessageDialog(null, "Curso Actualizado");
+            txtNombreCurso.setText("");
+            txtCodigo.setText("");
+            txtNumeroHoras.setText("");
+            fila = tblCursos.getRowCount();
+            for (int i = fila - 1; i >= 0; i--) {
+                modelo.removeRow(i);
+            }
+            listarCursos();
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccionar fila");
+        }
+
     }//GEN-LAST:event_btnEditarActionPerformed
-        
+    public int hola(String buscar) {
+        int cantidadCursos = GestionEscuela.listaCursos.size();
+
+        String[] datos = new String[cantidadCursos * 4];
+
+        int i = 0;
+        int contador = 0;
+        for (i = 0; i < datos.length; i++) {
+            datos[i] = GestionEscuela.listaCursos.get(contador).getCodigo();
+            datos[i + 1] = GestionEscuela.listaCursos.get(contador).getNombre();
+            datos[i + 2] = GestionEscuela.listaCursos.get(contador).getHoras() + "";
+            datos[i + 3] = GestionEscuela.listaCursos.get(contador).getUnDocente() + "";
+            i = i + 3;
+            contador++;
+        }
+
+        if (!buscar.isEmpty()) {
+            try {
+                String identifica = buscar;
+                int indice = busquedaSecuencial(datos, identifica);
+                if (indice < 0) {
+                    JOptionPane.showMessageDialog(null, "No existe el docente con dicha Identificación");
+                } else {
+                    if (indice <= 0) {
+                        return 0;
+                    } else {
+                        indice = indice / 4;
+                        return indice;
+                    }
+                }
+            } catch (NumberFormatException | HeadlessException ex) {
+                JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe Ingresar la identificación del docente a Consultar");
+        }
+        return 0;
+    }
+
+    public int busquedaSecuencial(String[] arreglo, String dato) {
+        int posicion = -1;
+        for (int i = 0; i < arreglo.length; i++) {//recorremos todo el arreglo
+            if (dato.equals(arreglo[i])) {//comparamos el elemento en el arreglo con el buscado
+                posicion = i;//Si es verdadero guardamos la posicion
+                break;//Para el ciclo
+            }
+        }
+        return posicion;
+    }
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        
+        int fila = tblCursos.getSelectedRow();
+        DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
+        if (fila >= 0) {
+
+            GestionEscuela.eliminarCurso(hola(txtCodigo.getText()));
+            modelo.removeRow(fila);
+            listarCursos();
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccionar fila");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void tblCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCursosMouseClicked
+        // TODO add your handling code here:
+        int seleccionar = tblCursos.rowAtPoint(evt.getPoint());
+        txtCodigo.setText(String.valueOf(tblCursos.getValueAt(seleccionar, 0)));
+        txtNombreCurso.setText(String.valueOf(tblCursos.getValueAt(seleccionar, 1)));
+        txtNumeroHoras.setText(String.valueOf(tblCursos.getValueAt(seleccionar, 2)));
+    }//GEN-LAST:event_tblCursosMouseClicked
 
     /**
      * @param args the command line arguments
