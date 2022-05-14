@@ -4,11 +4,11 @@ package sistemaescuela;
 import java.awt.HeadlessException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
- import javax.swing.table.DefaultTableModel;
+import javax.swing.table.DefaultTableModel;
 
 //NESTOR ANTONIO SANDOVAL SANTOS
 public class FrmListaDocente extends javax.swing.JFrame {
-  
+
     /**
      * Creates new form FrmListaDocente
      */
@@ -17,18 +17,19 @@ public class FrmListaDocente extends javax.swing.JFrame {
         setLocationRelativeTo(this);
         listarDocentes();
     }
+
     //METODO PARA PODER LISTAR A LOS DOCENTES
-    public void listarDocentes(){
+    public void listarDocentes() {
         int cantidad = GestionEscuela.listaDocentes.size();
         DefaultTableModel modelo = (DefaultTableModel) tblDocentes.getModel();
         tblDocentes.setModel(modelo);
         String[] datos = new String[4];
-        for(int i=0;i<cantidad;i++){
-            datos[0]=GestionEscuela.listaDocentes.get(i).getIdentificacion();
-            datos[1]=GestionEscuela.listaDocentes.get(i).getNombre();
-            datos[2]=GestionEscuela.listaDocentes.get(i).getCorreo();
-            datos[3]=GestionEscuela.listaDocentes.get(i).getProfesion();
-            modelo.addRow(datos);      
+        for (int i = 0; i < cantidad; i++) {
+            datos[0] = GestionEscuela.listaDocentes.get(i).getIdentificacion();
+            datos[1] = GestionEscuela.listaDocentes.get(i).getNombre();
+            datos[2] = GestionEscuela.listaDocentes.get(i).getCorreo();
+            datos[3] = GestionEscuela.listaDocentes.get(i).getProfesion();
+            modelo.addRow(datos);
         }
     }
 
@@ -378,7 +379,7 @@ public class FrmListaDocente extends javax.swing.JFrame {
         }
         return 0;
     }
-    
+
     public int busquedaSecuencial(String[] arreglo, String dato) {
         int posicion = -1;
         for (int i = 0; i < arreglo.length; i++) {//recorremos todo el arreglo
@@ -389,9 +390,11 @@ public class FrmListaDocente extends javax.swing.JFrame {
         }
         return posicion;
     }
-    
+
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
+        if (!txtIdentificacion.getText().isEmpty() && !txtCorreo.getText().isEmpty()
+            && !txtNombre.getText().isEmpty()){
         int fila = tblDocentes.getSelectedRow();
         DefaultTableModel modelo = (DefaultTableModel) tblDocentes.getModel();
         if (fila >= 0) {
@@ -414,6 +417,9 @@ public class FrmListaDocente extends javax.swing.JFrame {
             listarDocentes();
         } else {
             JOptionPane.showMessageDialog(null, "Seleccionar fila");
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Faltan datos");
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 

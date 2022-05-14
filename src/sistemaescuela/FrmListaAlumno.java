@@ -327,6 +327,8 @@ public class FrmListaAlumno extends javax.swing.JFrame {
     //BOTON DE EDITAR
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
+        if (!txtCorreo.getText().isEmpty() && !txtIdentificacion.getText().isEmpty()
+                && !txtNombre.getText().isEmpty()){  
         int fila = tblAlumnos.getSelectedRow();
         DefaultTableModel modelo = (DefaultTableModel) tblAlumnos.getModel();
         if (fila >= 0) {
@@ -349,6 +351,9 @@ public class FrmListaAlumno extends javax.swing.JFrame {
             listarAlumnos();
         } else {
             JOptionPane.showMessageDialog(null, "Seleccionar fila");
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Faltan datos");
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 

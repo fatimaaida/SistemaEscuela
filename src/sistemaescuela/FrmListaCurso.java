@@ -254,8 +254,8 @@ public class FrmListaCurso extends javax.swing.JFrame {
         for (i = 0; i < datos.length; i++) {
             datos[i] = GestionEscuela.listaCursos.get(contador).getCodigo();
             datos[i + 1] = GestionEscuela.listaCursos.get(contador).getNombre();
-            datos[i + 2] = GestionEscuela.listaCursos.get(contador).getHoras()+"";
-            datos[i + 3] = GestionEscuela.listaCursos.get(contador).getUnDocente()+"";
+            datos[i + 2] = GestionEscuela.listaCursos.get(contador).getHoras() + "";
+            datos[i + 3] = GestionEscuela.listaCursos.get(contador).getUnDocente() + "";
             i = i + 3;
             contador++;
         }
@@ -318,28 +318,33 @@ public class FrmListaCurso extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        int fila = tblCursos.getSelectedRow();
-        DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
-        if (fila >= 0) {
-            GestionEscuela.eliminarCurso(hola(txtCodigo.getText()));
-            modelo.removeRow(fila);
-            int identifica = Integer.parseInt(txtCodigo.getText().trim());
-            String nombre = txtNombreCurso.getText();
-            String correo = txtNumeroHoras.getText();
-            Docente unDocente = (Docente) cbDocente.getSelectedItem();
-            Curso unCurso = new Curso(nombre, txtCodigo.getText().trim(), Integer.parseInt(correo), unDocente);
-            GestionEscuela.agregarCurso(unCurso);
-            JOptionPane.showMessageDialog(null, "Curso Actualizado");
-            txtNombreCurso.setText("");
-            txtCodigo.setText("");
-            txtNumeroHoras.setText("");
-            fila = tblCursos.getRowCount();
-            for (int i = fila - 1; i >= 0; i--) {
-                modelo.removeRow(i);
+        if (!txtCodigo.getText().isEmpty() && !txtNombreCurso.getText().isEmpty()
+                && !txtNumeroHoras.getText().isEmpty()) {
+            int fila = tblCursos.getSelectedRow();
+            DefaultTableModel modelo = (DefaultTableModel) tblCursos.getModel();
+            if (fila >= 0) {
+                GestionEscuela.eliminarCurso(hola(txtCodigo.getText()));
+                modelo.removeRow(fila);
+                int identifica = Integer.parseInt(txtCodigo.getText().trim());
+                String nombre = txtNombreCurso.getText();
+                String correo = txtNumeroHoras.getText();
+                Docente unDocente = (Docente) cbDocente.getSelectedItem();
+                Curso unCurso = new Curso(nombre, txtCodigo.getText().trim(), Integer.parseInt(correo), unDocente);
+                GestionEscuela.agregarCurso(unCurso);
+                JOptionPane.showMessageDialog(null, "Curso Actualizado");
+                txtNombreCurso.setText("");
+                txtCodigo.setText("");
+                txtNumeroHoras.setText("");
+                fila = tblCursos.getRowCount();
+                for (int i = fila - 1; i >= 0; i--) {
+                    modelo.removeRow(i);
+                }
+                listarCursos();
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccionar fila");
             }
-            listarCursos();
         } else {
-            JOptionPane.showMessageDialog(null, "Seleccionar fila");
+            JOptionPane.showMessageDialog(null, "Faltan datos");
         }
 
     }//GEN-LAST:event_btnEditarActionPerformed
