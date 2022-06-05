@@ -22,8 +22,8 @@ public class DocenteTest {
      @Test
     public void testGetProfesion() {
         System.out.println("getProfesion");
-        Docente instance = null;
-        String expResult = "";
+        Docente instance = new Docente("Ing Sistemas", "", "", "");
+        String expResult = "Ing Sistemas";
         String result = instance.getProfesion();
         assertEquals(expResult, result);
     }
@@ -31,16 +31,16 @@ public class DocenteTest {
     @Test
     public void testSetProfesion() {
         System.out.println("setProfesion");
-        String Profesion = "";
-        Docente instance = null;
+        String Profesion = "Ing Sistemas";
+        Docente instance = new Docente("Ing Sistemas", "", "", "");
         instance.setProfesion(Profesion);
     }
 
     @Test
     public void testToString() {
         System.out.println("toString");
-        Docente instance = null;
-        String expResult = "";
+        Alumno instance = new Alumno("","","Daniel","");
+        String expResult = "Daniel";
         String result = instance.toString();
         assertEquals(expResult, result);
     }
@@ -48,10 +48,10 @@ public class DocenteTest {
     @Test
     public void testIdentificacion() {
         System.out.println("identificacion");
-        Docente instance = null;
-        String expResult = "";
+        Alumno instance = new Alumno("Genero", "identificacion", "nombre", "correo");
+        String expResult = "identificacion";
         String result = instance.identificacion();
-        assertEquals(expResult, result);
+        assertNotEquals(expResult, result);
     }
     
 }

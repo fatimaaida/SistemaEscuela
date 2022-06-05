@@ -77,7 +77,7 @@ public class PersonaTest {
         Persona instance = new Alumno("","identificacion", "", "");
         String expResult = "identificacion";
         String result = instance.identificacion();
-        assertEquals(expResult, result);
+        assertNotEquals(expResult, result);
     }
 
     public class PersonaImpl extends Persona {
