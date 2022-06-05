@@ -22,8 +22,8 @@ public class PersonaTest {
     @Test
     public void testGetIdentificacion() {
         System.out.println("getIdentificacion");
-        Persona instance = null;
-        String expResult = "";
+        Persona instance = new Alumno("", "identificacion", "", "");
+        String expResult = "identificacion";
         String result = instance.getIdentificacion();
         assertEquals(expResult, result);
     }
@@ -31,16 +31,16 @@ public class PersonaTest {
     @Test
     public void testSetIdentificacion() {
         System.out.println("setIdentificacion");
-        String identificacion = "";
-        Persona instance = null;
+        String identificacion = "identificacion";
+        Persona instance = new Alumno("", "identificacion", "", "");
         instance.setIdentificacion(identificacion);
     }
 
     @Test
     public void testGetNombre() {
         System.out.println("getNombre");
-        Persona instance = null;
-        String expResult = "";
+        Persona instance = new Alumno("", "", "Aida", "");
+        String expResult = "Aida";
         String result = instance.getNombre();
         assertEquals(expResult, result);
 
@@ -49,16 +49,16 @@ public class PersonaTest {
     @Test
     public void testSetNombre() {
         System.out.println("setNombre");
-        String nombre = "";
-        Persona instance = null;
+        String nombre = "Aida";
+        Persona instance = new Alumno("", "", "Aida", "");
         instance.setNombre(nombre);
     }
 
     @Test
     public void testGetCorreo() {
         System.out.println("getCorreo");
-        Persona instance = null;
-        String expResult = "";
+        Persona instance = new Alumno("", "", "", "aidarebollo@gmail.com");
+        String expResult = "aidarebollo@gmail.com";
         String result = instance.getCorreo();
         assertEquals(expResult, result);
     }
@@ -66,16 +66,16 @@ public class PersonaTest {
     @Test
     public void testSetCorreo() {
         System.out.println("setCorreo");
-        String correo = "";
-        Persona instance = null;
+        String correo = "aidarebollo@gmail.com";
+        Persona instance = new Alumno("", "", "", "aidarebollo@gmail.com");
         instance.setCorreo(correo);
     }
 
     @Test
     public void testIdentificacion() {
         System.out.println("identificacion");
-        Persona instance = null;
-        String expResult = "";
+        Persona instance = new Alumno("","identificacion", "", "");
+        String expResult = "identificacion";
         String result = instance.identificacion();
         assertEquals(expResult, result);
     }

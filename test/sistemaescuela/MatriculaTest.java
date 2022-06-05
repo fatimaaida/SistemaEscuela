@@ -24,8 +24,8 @@ public class MatriculaTest {
     @Test
     public void testGetUnCurso() {
         System.out.println("getUnCurso");
-        Matricula instance = null;
-        Curso expResult = null;
+        Matricula instance = new Matricula ("progra", "", "");
+        Curso expResult = "progra";
         Curso result = instance.getUnCurso();
         assertEquals(expResult, result);
     }
@@ -33,16 +33,16 @@ public class MatriculaTest {
     @Test
     public void testSetUnCurso() {
         System.out.println("setUnCurso");
-        Curso unCurso = null;
-        Matricula instance = null;
+        Curso unCurso = new Matricula ("progra", "", "");
+        Matricula instance = "progra";
         instance.setUnCurso(unCurso);
     }
 
     @Test
     public void testGetUnAlumno() {
         System.out.println("getUnAlumno");
-        Matricula instance = null;
-        Alumno expResult = null;
+        Matricula instance =new Matricula ("", "Mario", "");
+        Alumno expResult = "Mario";
         Alumno result = instance.getUnAlumno();
         assertEquals(expResult, result);
     }
@@ -50,16 +50,16 @@ public class MatriculaTest {
     @Test
     public void testSetUnAlumno() {
         System.out.println("setUnAlumno");
-        Alumno unAlumno = null;
-        Matricula instance = null;
+        Alumno unAlumno = new Matricula ("", "Mario", "");
+        Matricula instance = "Mario";
         instance.setUnAlumno(unAlumno);
     }
 
     @Test
     public void testGetFecha() {
         System.out.println("getFecha");
-        Matricula instance = null;
-        Date expResult = null;
+        Matricula instance = new Matricula ("", "", "", "Fecha");
+        Date expResult = "Fecha";
         Date result = instance.getFecha();
         assertEquals(expResult, result);
     }
